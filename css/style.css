@@ -178,5 +178,350 @@ body{
         opacity:.4;
 
     }
+   /* ===========================
+   Shooting Stars
+=========================== */
+
+.shooting-stars{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    top:0;
+    left:0;
+    pointer-events:none;
+}
+
+.shooting-stars span{
+    position:absolute;
+    display:block;
+    width:3px;
+    height:120px;
+    background:linear-gradient(white,transparent);
+    border-radius:50px;
+    animation:shoot 8s linear infinite;
+}
+
+.shooting-stars span:nth-child(1){
+    top:10%;
+    left:85%;
+    animation-delay:0s;
+}
+
+.shooting-stars span:nth-child(2){
+    top:30%;
+    left:60%;
+    animation-delay:2s;
+}
+
+.shooting-stars span:nth-child(3){
+    top:50%;
+    left:95%;
+    animation-delay:5s;
+}
+
+.shooting-stars span:nth-child(4){
+    top:20%;
+    left:30%;
+    animation-delay:7s;
+}
+
+@keyframes shoot{
+
+    0%{
+        transform:
+        rotate(45deg)
+        translateY(0);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+        rotate(45deg)
+        translate(-900px,900px);
+
+        opacity:0;
+    }
+
+}
+
+/* ===========================
+   Memory Galaxy
+=========================== */
+
+#memory{
+
+    min-height:100vh;
+
+    padding:120px 30px;
+
+    text-align:center;
+
+    background:#050816;
+
+}
+
+#memory h2{
+
+    font-size:50px;
+
+    margin-bottom:20px;
+
+}
+
+#memory p{
+
+    font-size:22px;
+
+    margin-bottom:70px;
+
+}
+
+.galaxy{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:60px;
+
+}
+
+.star{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:#ffffff10;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:45px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:
+
+    0 0 20px rgba(255,255,255,.2);
+
+}
+
+.star:hover{
+
+    transform:scale(1.25);
+
+    box-shadow:
+
+    0 0 25px white,
+
+    0 0 50px #7d8cff,
+
+    0 0 80px #9d6dff;
+
+}
+
+/* ===========================
+   Popup
+=========================== */
+
+#popup,
+#bearPopup,
+#letterPopup{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.75);
+
+    z-index:999;
+
+}
+
+.popup-box{
+
+    width:700px;
+
+    max-width:90%;
+
+    background:#111633;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:
+
+    0 0 50px rgba(120,150,255,.4);
+
+}
+
+.popup-box img{
+
+    width:100%;
+
+    border-radius:18px;
+
+    margin-bottom:20px;
+
+}
+
+.popup-box h2{
+
+    margin-bottom:20px;
+
+}
+
+.popup-box p{
+
+    line-height:1.8;
+
+    font-size:20px;
+
+}
+
+#closePopup,
+#closeBear,
+#closeLetter{
+
+    float:right;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+}
+
+/* ===========================
+   Character
+=========================== */
+
+#character{
+
+    min-height:80vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    background:#020412;
+
+}
+
+#bear{
+
+    width:220px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+#bear:hover{
+
+    transform:scale(1.08) rotate(5deg);
+
+}
+
+#character p{
+
+    margin-top:20px;
+
+    font-size:24px;
+
+}
+
+/* ===========================
+   Letter
+=========================== */
+
+#letter{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    background:#07101d;
+
+}
+
+.envelope{
+
+    font-size:110px;
+
+    animation:float 3s ease-in-out infinite;
+
+}
+
+#openLetter{
+
+    margin-top:35px;
+
+    padding:15px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#8b5cf6;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+}
+
+@keyframes float{
+
+    50%{
+
+        transform:translateY(-20px);
+
+    }
+
+}
 
 }
