@@ -1,1 +1,182 @@
+/* ===========================
+   Google Font
+=========================== */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Itim',cursive;
+}
+
+body{
+    background:#020412;
+    overflow-x:hidden;
+    color:white;
+}
+
+/* ===========================
+   Home
+=========================== */
+
+#home{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+
+    background:
+    radial-gradient(circle at top,#26367a,#050816 70%);
+}
+
+.overlay{
+    z-index:5;
+}
+
+.small-title{
+
+    font-size:28px;
+    opacity:.8;
+}
+
+.title{
+
+    font-size:70px;
+
+    margin-top:10px;
+
+    color:#fff;
+
+    text-shadow:
+
+    0 0 20px #ffffff,
+
+    0 0 40px #7d8cff,
+
+    0 0 60px #8d5cff;
+
+}
+
+.subtitle{
+
+    margin-top:20px;
+
+    font-size:22px;
+
+}
+
+#enterBtn{
+
+    margin-top:40px;
+
+    padding:15px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#8b5cf6;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+#enterBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+
+    0 0 30px #9b7cff;
+
+}
+
+/* ===========================
+   Moon
+=========================== */
+
+.moon{
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:white;
+
+    top:80px;
+
+    right:120px;
+
+    box-shadow:
+
+    0 0 60px white,
+
+    0 0 120px #bcdcff;
+
+}
+
+/* ===========================
+   Stars
+=========================== */
+
+#stars,
+#stars2,
+#stars3{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    top:0;
+
+    left:0;
+
+    background-image:
+    radial-gradient(white 1px,transparent 1px);
+
+    background-size:50px 50px;
+
+    animation:blink 3s infinite;
+
+}
+
+#stars2{
+
+    opacity:.5;
+
+    animation-duration:5s;
+
+}
+
+#stars3{
+
+    opacity:.3;
+
+    animation-duration:7s;
+
+}
+
+@keyframes blink{
+
+    50%{
+
+        opacity:.4;
+
+    }
+
+}
