@@ -1,262 +1,217 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Our Galaxy</title>
+<title>Our Galaxy ✨</title>
 
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Itim&family=Poppins:wght@300;400;600&display=swap"
-        rel="stylesheet">
-
-    <script src="https://kit.fontawesome.com/6d2ea823d0.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <!-- ดาว -->
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
+<div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
 
-    <!-- พระจันทร์ -->
-    <div class="moon"></div>
+<div class="moon"></div>
 
-    <!-- ดาวตก -->
-    <div class="shooting-stars">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+<div class="shooting-stars">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
 
-    <!-- เพลง -->
-    <audio id="bgMusic" loop>
-        <source src="music/song.mp3" type="audio/mpeg">
-    </audio>
+<audio id="bgMusic" loop>
+<source src="music/song.mp3" type="audio/mpeg">
+</audio>
 
-    <!-- หน้าแรก -->
-    <section id="home">
+<section id="home">
 
-        <div class="overlay">
+<div class="overlay">
 
-            <h3 class="small-title">
-                Welcome To
-            </h3>
+<h3>Welcome To</h3>
 
-            <h1 class="title">
-                Our Galaxy
-            </h1>
+<h1>Our Galaxy</h1>
 
-            <p class="subtitle">
-                Every star keeps one memory of us ✨
-            </p>
+<p>Every star keeps one memory of us ✨</p>
 
-            <button id="enterBtn">
-                Enter Our Galaxy
-            </button>
+<button id="enterBtn">
+Enter Our Galaxy
+</button>
 
-        </div>
+</div>
 
-    </section>
+</section>
 
-    <!-- Memory Galaxy -->
+<section id="memory">
 
-    <section id="memory">
+<h2>Memory Galaxy</h2>
 
-        <h2>Memory Galaxy</h2>
+<p>Click every star to discover our memories.</p>
 
-        <p>
-            Click every star to discover our memories.
-        </p>
+<div class="memory-grid">
 
-        <div class="galaxy">
+<div class="star" data-img="images/gallery/memory01.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory02.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory03.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory04.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory05.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory06.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory07.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory08.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory09.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory10.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory11.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory12.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory13.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory14.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory15.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory16.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory17.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory18.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory19.jpg">⭐</div>
+<div class="star" data-img="images/gallery/memory20.jpg">⭐</div>
 
-            <div class="planet star" data-memory="1">
-                ⭐
-            </div>
+</div>
 
-            <div class="planet star" data-memory="2">
-                ⭐
-            </div>
+</section>
+<section id="characters">
 
-            <div class="planet star" data-memory="3">
-                ⭐
-            </div>
+<h2>Our Friends 🧸</h2>
 
-            <div class="planet star" data-memory="4">
-                ⭐
-            </div>
+<div class="character-grid">
 
-            <div class="planet star" data-memory="5">
-                ⭐
-            </div>
+<div class="character">
+<img src="images/characters/1.png" class="character-img">
+</div>
 
-            <div class="planet star" data-memory="6">
-                ⭐
-            </div>
+<div class="character">
+<img src="images/characters/2.png" class="character-img">
+</div>
 
-        </div>
+<div class="character">
+<img src="images/characters/3.png" class="character-img">
+</div>
 
-    </section>
+<div class="character">
+<img src="images/characters/4.png" class="character-img">
+</div>
 
-    <!-- Popup -->
+<div class="character">
+<img src="images/characters/5.png" class="character-img">
+</div>
 
-    <div id="popup">
+</div>
 
-        <div class="popup-box">
+</section>
 
-            <span id="closePopup">&times;</span>
+<section id="letter">
 
-            <img id="popupImage"
-                src="images/gallery/photo1.jpg">
+<h2>💌 A Letter For You</h2>
 
-            <h2 id="popupTitle">
+<button id="openLetter">
+Open Letter
+</button>
 
-                Our Memory
+</section>
 
-            </h2>
+<div id="letterPopup" class="popup">
 
-            <p id="popupText">
+<div class="popup-content">
 
-                ใส่ข้อความตรงนี้ภายหลัง
+<span id="closeLetter">&times;</span>
 
-            </p>
+<h2>To My Love ❤️</h2>
 
-        </div>
+<p>
 
-    </div>
+ถึงแฟนของออย 🤍<br><br>
 
-    <!-- Character -->
+ขอบคุณที่อยู่ด้วยกันมาตลอดนะ<br>
+ขอบคุณทุกความทรงจำ ทุกเสียงหัวเราะ และทุกช่วงเวลาที่เราได้เดินไปด้วยกัน<br><br>
 
-    <section id="character">
+ไม่ว่าต่อจากนี้จะเกิดอะไรขึ้น ออยก็หวังว่าเว็บเล็ก ๆ นี้จะเป็นอีกหนึ่งความทรงจำที่เราเปิดกลับมาดูได้เสมอ 🌌💙
 
-        <img
-            src="images/characters/bear.png"
-            id="bear">
+</p>
 
-        <p>
+</div>
 
-            Click Me 🧸
+</div>
 
-        </p>
+<section id="gallery">
 
-    </section>
+<h2>Gallery</h2>
 
-    <!-- Character Popup -->
+<div class="gallery-grid">
 
-    <div id="bearPopup">
+<img src="images/gallery/memory01.jpg">
+<img src="images/gallery/memory02.jpg">
+<img src="images/gallery/memory03.jpg">
+<img src="images/gallery/memory04.jpg">
+<img src="images/gallery/memory05.jpg">
+<img src="images/gallery/memory06.jpg">
+<img src="images/gallery/memory07.jpg">
+<img src="images/gallery/memory08.jpg">
+<img src="images/gallery/memory09.jpg">
+<img src="images/gallery/memory10.jpg">
+<img src="images/gallery/memory11.jpg">
+<img src="images/gallery/memory12.jpg">
+<img src="images/gallery/memory13.jpg">
+<img src="images/gallery/memory14.jpg">
+<img src="images/gallery/memory15.jpg">
+<img src="images/gallery/memory16.jpg">
+<img src="images/gallery/memory17.jpg">
+<img src="images/gallery/memory18.jpg">
+<img src="images/gallery/memory19.jpg">
+<img src="images/gallery/memory20.jpg">
 
-        <div class="popup-box">
+</div>
 
-            <span id="closeBear">&times;</span>
+</section>
+<div id="imagePopup" class="popup">
 
-            <img
-                src="images/gallery/photo2.jpg">
+    <div class="popup-content">
 
-        </div>
+        <span id="closeImage">&times;</span>
 
-    </div>
-
-    <!-- Letter -->
-
-    <section id="letter">
-
-        <div class="envelope">
-
-            💌
-
-        </div>
-
-        <button id="openLetter">
-
-            Open Letter
-
-        </button>
-
-    </section>
-
-    <!-- Letter Popup -->
-
-    <div id="letterPopup">
-
-        <div class="popup-box">
-
-            <span id="closeLetter">
-
-                &times;
-
-            </span>
-
-            <h2>
-
-                To My Love ❤️
-
-            </h2>
-
-            <p>
-
-                ข้อความจดหมายของออย
-                จะใส่ทีหลัง
-
-            </p>
-
-        </div>
+        <img id="popupImage" src="" alt="Memory">
 
     </div>
 
-    <!-- Gallery -->
+</div>
 
-    <section id="gallery">
+<section id="ending">
 
-        <h2>
+    <h1>✨ Thank You ✨</h1>
 
-            Gallery
+    <p>
 
-        </h2>
+        Thank you for being the brightest star in my universe.
 
-        <div class="gallery">
+    </p>
 
-            <img src="images/gallery/photo1.jpg">
+    <h2>
 
-            <img src="images/gallery/photo2.jpg">
+        I Love You ❤️
 
-            <img src="images/gallery/photo3.jpg">
+    </h2>
 
-            <img src="images/gallery/photo4.jpg">
+</section>
 
-            <img src="images/gallery/photo5.jpg">
+<footer>
 
-            <img src="images/gallery/photo6.jpg">
+    Made with 🤍 by Aoy
 
-        </div>
+</footer>
 
-    </section>
-
-    <!-- Ending -->
-
-    <section id="ending">
-
-        <h1>
-
-            Thank You
-
-        </h1>
-
-        <p>
-
-            Thank you for being part of my universe.
-
-        </p>
-
-    </section>
-
-    <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 
