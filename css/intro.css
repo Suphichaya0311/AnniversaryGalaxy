@@ -1,1 +1,323 @@
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Itim',cursive;
+}
+
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+background:#000814;
+}
+
+body{
+position:relative;
+}
+
+/* ===========================
+INTRO
+=========================== */
+
+#intro{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+z-index:100;
+transition:2s;
+}
+
+/* พื้นหลัง */
+
+.intro-bg{
+position:absolute;
+width:100%;
+height:100%;
+background:
+url("../images/background/galaxy.jpg")
+center center/cover
+no-repeat;
+filter:brightness(.45);
+transform:scale(1.15);
+animation:bgZoom 18s infinite alternate;
+}
+
+/* ดาว */
+
+.intro-stars{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+.intro-stars::before{
+
+content:"";
+
+position:absolute;
+
+width:2px;
+
+height:2px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:
+
+50px 80px white,
+100px 300px white,
+180px 120px white,
+260px 400px white,
+340px 250px white,
+420px 100px white,
+520px 330px white,
+640px 200px white,
+760px 450px white,
+900px 180px white,
+1050px 350px white,
+1200px 120px white,
+1350px 260px white,
+1500px 400px white,
+1700px 150px white,
+1850px 320px white;
+
+animation:twinkle 3s infinite;
+
+}
+
+/* กล่องข้อความ */
+
+.intro-content{
+
+position:relative;
+
+z-index:5;
+
+text-align:center;
+
+padding:50px;
+
+background:rgba(0,0,0,.18);
+
+backdrop-filter:blur(10px);
+
+border-radius:35px;
+
+}
+
+.intro-content h2{
+
+font-size:38px;
+
+color:white;
+
+letter-spacing:2px;
+
+}
+
+.intro-content h1{
+
+margin-top:10px;
+
+font-size:90px;
+
+color:white;
+
+text-shadow:
+
+0 0 20px white,
+
+0 0 40px #9d7bff,
+
+0 0 70px #5b7dff;
+
+}
+
+.intro-content p{
+
+margin-top:15px;
+
+font-size:24px;
+
+color:#eee;
+
+}
+
+/* หัวใจ */
+
+#heartButton{
+
+margin-top:40px;
+
+width:95px;
+
+height:95px;
+
+border:none;
+
+border-radius:50%;
+
+font-size:45px;
+
+background:#ff4f8d;
+
+color:white;
+
+cursor:pointer;
+
+transition:.4s;
+
+animation:heartBeat 1.5s infinite;
+
+box-shadow:
+
+0 0 30px #ff4f8d,
+
+0 0 70px #ff4f8d;
+
+}
+
+#heartButton:hover{
+
+transform:scale(1.15);
+
+}
+
+/* ===========================
+ZOOM
+=========================== */
+
+#zoomScene{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+background:black;
+
+overflow:hidden;
+
+z-index:200;
+
+}
+
+.zoomGalaxy{
+
+position:absolute;
+
+width:300px;
+
+height:300px;
+
+border-radius:50%;
+
+background:radial-gradient(circle,#ffffff,#6f63ff,#000);
+
+filter:blur(2px);
+
+animation:zoomSpin 5s linear infinite;
+
+}
+
+.warpStars{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+overflow:hidden;
+
+}
+
+/* ===========================
+Animation
+=========================== */
+
+@keyframes heartBeat{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.18);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes bgZoom{
+
+0%{
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+transform:scale(1.2);
+
+}
+
+}
+
+@keyframes twinkle{
+
+50%{
+
+opacity:.3;
+
+}
+
+}
+
+@keyframes zoomSpin{
+
+0%{
+
+transform:scale(.3) rotate(0deg);
+
+}
+
+100%{
+
+transform:scale(5) rotate(720deg);
+
+}
+
+}
