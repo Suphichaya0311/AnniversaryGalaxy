@@ -1,143 +1,281 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Our Galaxy ✨</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="css/style.css">
+<title>Our Galaxy</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="css/intro.css">
+
+<link rel="stylesheet"
+href="css/galaxy.css">
+
+<link rel="stylesheet"
+href="css/popup.css">
+
+<link rel="stylesheet"
+href="css/puzzle.css">
+
+<link rel="stylesheet"
+href="css/animation.css">
+
+<link rel="stylesheet"
+href="css/responsive.css">
 
 </head>
 
 <body>
 
-<div id="stars"></div>
-<div id="stars2"></div>
-<div id="stars3"></div>
+<audio
+id="bgMusic"
+loop>
 
-<div class="moon"></div>
+<source
+src="music/song.mp3"
+type="audio/mpeg">
 
-<div class="shooting-stars">
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-</div>
-
-<audio id="bgMusic" loop>
-<source src="music/song.mp3" type="audio/mpeg">
 </audio>
 
-<section id="home">
+<!-- INTRO -->
 
-<div class="overlay">
+<section
+id="intro">
 
-<h3>Welcome To</h3>
+<div class="intro-bg"></div>
 
-<h1>Our Galaxy</h1>
+<div class="intro-stars"></div>
 
-<p>Every star keeps one memory of us ✨</p>
+<div class="intro-content">
 
-<button id="enterBtn">
-Enter Our Galaxy
-</button>
+<h2>
 
-</div>
+Happy Anniversary
 
-</section>
+</h2>
 
-<section id="memory">
+<h1>
 
-<h2>Memory Galaxy</h2>
+Our Galaxy
 
-<p>Click every star to discover our memories.</p>
-
-<div class="memory-grid">
-
-<div class="star" data-img="images/gallery/memory01.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory02.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory03.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory04.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory05.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory06.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory07.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory08.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory09.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory10.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory11.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory12.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory13.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory14.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory15.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory16.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory17.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory18.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory19.jpg">⭐</div>
-<div class="star" data-img="images/gallery/memory20.jpg">⭐</div>
-
-</div>
-
-</section>
-<section id="characters">
-
-<h2>Our Friends 🧸</h2>
-
-<div class="character-grid">
-
-<div class="character">
-<img src="images/characters/1.png" class="character-img">
-</div>
-
-<div class="character">
-<img src="images/characters/2.png" class="character-img">
-</div>
-
-<div class="character">
-<img src="images/characters/3.png" class="character-img">
-</div>
-
-<div class="character">
-<img src="images/characters/4.png" class="character-img">
-</div>
-
-<div class="character">
-<img src="images/characters/5.png" class="character-img">
-</div>
-
-</div>
-
-</section>
-
-<section id="letter">
-
-<h2>💌 A Letter For You</h2>
-
-<button id="openLetter">
-Open Letter
-</button>
-
-</section>
-
-<div id="letterPopup" class="popup">
-
-<div class="popup-content">
-
-<span id="closeLetter">&times;</span>
-
-<h2>To My Love ❤️</h2>
+</h1>
 
 <p>
 
-ถึงแฟนของออย 🤍<br><br>
+Every star keeps one memory of us.
 
-ขอบคุณที่อยู่ด้วยกันมาตลอดนะ<br>
-ขอบคุณทุกความทรงจำ ทุกเสียงหัวเราะ และทุกช่วงเวลาที่เราได้เดินไปด้วยกัน<br><br>
+</p>
 
-ไม่ว่าต่อจากนี้จะเกิดอะไรขึ้น ออยก็หวังว่าเว็บเล็ก ๆ นี้จะเป็นอีกหนึ่งความทรงจำที่เราเปิดกลับมาดูได้เสมอ 🌌💙
+<button
+id="heartButton">
+
+❤
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ZOOM -->
+
+<section
+id="zoomScene">
+
+<div class="warpStars"></div>
+
+<div class="zoomGalaxy"></div>
+
+</section>
+
+<!-- MAIN GALAXY -->
+
+<section
+id="galaxyWorld">
+
+<div class="moon"></div>
+
+<div class="galaxyGlow"></div>
+
+<div id="starContainer"></div>
+
+<div id="shootingStars"></div>
+
+<div id="heartParticles"></div>
+
+<nav
+class="menu">
+
+<div
+class="menuItem"
+id="timerMenu">
+
+<img
+src="assets/timer.png">
+
+<span>
+
+Together Time
+
+</span>
+
+</div>
+
+<div
+class="menuItem"
+id="letterMenu">
+
+<img
+src="assets/letter.png">
+
+<span>
+
+Love Letter
+
+</span>
+
+</div>
+
+<div
+class="menuItem"
+id="puzzleMenu">
+
+<img
+src="assets/puzzle.png">
+
+<span>
+
+Puzzle Memory
+
+</span>
+
+</div>
+
+<div
+class="menuItem"
+id="memoryMenu">
+
+<img
+src="assets/star.png">
+
+<span>
+
+Memory Galaxy
+
+</span>
+
+</div>
+
+<div
+class="menuItem"
+id="wishMenu">
+
+<img
+src="assets/shootingstar.png">
+
+<span>
+
+Wishing Star
+
+</span>
+
+</div>
+
+<div
+class="menuItem"
+id="storyMenu">
+
+<img
+src="assets/book.png">
+
+<span>
+
+Story Book
+
+</span>
+
+</div>
+
+<div
+class="menuItem"
+id="musicMenu">
+
+<img
+src="assets/music.png">
+
+<span>
+
+Our Song
+
+</span>
+
+</div>
+
+</nav>
+<!-- ========================= -->
+<!-- Together Time -->
+<!-- ========================= -->
+
+<div class="popup" id="timerPopup">
+
+<div class="popupBox">
+
+<span class="close" data-close="timerPopup">&times;</span>
+
+<h2>Together Time ❤️</h2>
+
+<div id="loveTimer">
+
+<div><h3 id="years">0</h3><p>Years</p></div>
+
+<div><h3 id="months">0</h3><p>Months</p></div>
+
+<div><h3 id="days">0</h3><p>Days</p></div>
+
+<div><h3 id="hours">0</h3><p>Hours</p></div>
+
+<div><h3 id="minutes">0</h3><p>Minutes</p></div>
+
+<div><h3 id="seconds">0</h3><p>Seconds</p></div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- Letter -->
+<!-- ========================= -->
+
+<div class="popup" id="letterPopup">
+
+<div class="popupBox letterBox">
+
+<span class="close" data-close="letterPopup">&times;</span>
+
+<div class="envelope">
+
+<div class="paper">
+
+<h2>To My Love ❤️</h2>
+
+<p id="letterText">
 
 </p>
 
@@ -145,73 +283,375 @@ Open Letter
 
 </div>
 
-<section id="gallery">
+</div>
 
-<h2>Gallery</h2>
+</div>
 
-<div class="gallery-grid">
+<!-- ========================= -->
+<!-- Puzzle -->
+<!-- ========================= -->
+
+<div class="popup" id="puzzlePopup">
+
+<div class="popupBox puzzleBox">
+
+<span class="close" data-close="puzzlePopup">&times;</span>
+
+<h2>Puzzle Memory</h2>
+
+<div id="puzzleArea">
+
+</div>
+
+<div id="heartEnding">
+
+❤️
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- Memory Galaxy -->
+<!-- ========================= -->
+
+<div class="popup" id="memoryPopup">
+
+<div class="popupBox memoryBox">
+
+<span class="close" data-close="memoryPopup">&times;</span>
+
+<h2>Memory Galaxy</h2>
+
+<div id="memoryStars">
+<div class="memoryGrid">
+
+<div class="memoryStar" data-img="images/gallery/memory01.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory02.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory03.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory04.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory05.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory06.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory07.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory08.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory09.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory10.jpg">⭐</div>
+
+<div class="memoryStar" data-img="images/gallery/memory11.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory12.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory13.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory14.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory15.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory16.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory17.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory18.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory19.jpg">⭐</div>
+<div class="memoryStar" data-img="images/gallery/memory20.jpg">⭐</div>
+
+</div>
+
+<div id="memoryPreview">
+
+<img id="memoryImage">
+
+<p id="memoryCaption"></p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Story Book -->
+
+<div class="popup" id="storyPopup">
+
+<div class="popupBox storyBook">
+
+<span class="close" data-close="storyPopup">&times;</span>
+
+<div class="book">
+
+<div class="page active">
+
+<h2>Our Story</h2>
+
+<p>
+
+Once upon a time...
+
+Two people met each other.
+
+</p>
+
+</div>
+
+<div class="page">
 
 <img src="images/gallery/memory01.jpg">
-<img src="images/gallery/memory02.jpg">
-<img src="images/gallery/memory03.jpg">
-<img src="images/gallery/memory04.jpg">
-<img src="images/gallery/memory05.jpg">
-<img src="images/gallery/memory06.jpg">
-<img src="images/gallery/memory07.jpg">
-<img src="images/gallery/memory08.jpg">
-<img src="images/gallery/memory09.jpg">
+
+</div>
+
+<div class="page">
+
+<p>
+
+Every memory became a little star.
+
+</p>
+
+</div>
+
+<div class="page">
+
 <img src="images/gallery/memory10.jpg">
-<img src="images/gallery/memory11.jpg">
-<img src="images/gallery/memory12.jpg">
-<img src="images/gallery/memory13.jpg">
-<img src="images/gallery/memory14.jpg">
-<img src="images/gallery/memory15.jpg">
-<img src="images/gallery/memory16.jpg">
-<img src="images/gallery/memory17.jpg">
-<img src="images/gallery/memory18.jpg">
-<img src="images/gallery/memory19.jpg">
-<img src="images/gallery/memory20.jpg">
 
 </div>
 
-</section>
-<div id="imagePopup" class="popup">
+<div class="page">
 
-    <div class="popup-content">
+<h2>
 
-        <span id="closeImage">&times;</span>
+To Be Continued...
 
-        <img id="popupImage" src="" alt="Memory">
+❤️
 
-    </div>
+</h2>
 
 </div>
 
-<section id="ending">
+</div>
 
-    <h1>✨ Thank You ✨</h1>
+<div class="bookButtons">
 
-    <p>
+<button id="prevPage">
 
-        Thank you for being the brightest star in my universe.
+◀
 
-    </p>
+</button>
 
-    <h2>
+<button id="nextPage">
 
-        I Love You ❤️
+▶
 
-    </h2>
+</button>
 
-</section>
+</div>
 
-<footer>
+</div>
 
-    Made with 🤍 by Aoy
+</div>
 
-</footer>
+<!-- Wishing Star -->
 
-<script src="js/main.js"></script>
+<div class="popup"
+
+id="wishPopup">
+
+<div class="popupBox">
+
+<span class="close"
+
+data-close="wishPopup">
+
+&times;
+
+</span>
+
+<h2>
+
+Make A Wish ✨
+
+</h2>
+
+<p>
+
+My wish already came true,
+
+because I met you.
+
+❤️
+
+</p>
+
+</div>
+
+</div>
+
+<!-- Our Song -->
+
+<div class="popup"
+
+id="musicPopup">
+
+<div class="popupBox">
+
+<span class="close"
+
+data-close="musicPopup">
+
+&times;
+
+</span>
+
+<h2>
+
+Our Song
+
+🎵
+
+</h2>
+
+<p>
+
+ณ ความรัก
+
+สุดเขต จึงเจริญ
+
+feat. ปริศนา กัมพูสิริ
+
+</p>
+
+<button id="musicToggle">
+
+Pause / Play
+
+</button>
+
+</div>
+
+</div>
+<!-- ========================= -->
+<!-- Constellation Ending -->
+<!-- ========================= -->
+
+<div id="constellationEnding">
+
+<canvas id="constellationCanvas"></canvas>
+
+<div class="endingMessage">
+
+<h1>
+
+Happy Anniversary ❤️
+
+</h1>
+
+<h2>
+
+Every memory made our own constellation.
+
+</h2>
+
+<p>
+
+Thank you for being my universe.
+
+</p>
+
+<button id="restartGalaxy">
+
+Explore Again
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- Image Viewer -->
+<!-- ========================= -->
+
+<div class="popup"
+
+id="imagePopup">
+
+<div class="popupBox imageBox">
+
+<span class="close"
+
+data-close="imagePopup">
+
+&times;
+
+</span>
+
+<img
+
+id="popupImage"
+
+src=""
+
+alt="Memory">
+
+<p
+
+id="popupText">
+
+</p>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- Music Button -->
+<!-- ========================= -->
+
+<button
+
+id="musicFloating">
+
+🔊
+
+</button>
+
+<!-- ========================= -->
+<!-- Loading -->
+<!-- ========================= -->
+
+<div id="loadingScreen">
+
+<div class="loaderGalaxy">
+
+<div class="ring"></div>
+
+<div class="ring"></div>
+
+<div class="ring"></div>
+
+</div>
+
+<p>
+
+Loading Our Galaxy...
+
+</p>
+
+</div>
+
+<!-- ========================= -->
+<!-- Scripts -->
+<!-- ========================= -->
+
+<script src="js/intro.js"></script>
+
+<script src="js/galaxy.js"></script>
+
+<script src="js/music.js"></script>
+
+<script src="js/popup.js"></script>
+
+<script src="js/puzzle.js"></script>
+
+<script src="js/timer.js"></script>
+
+<script src="js/memory.js"></script>
+
+<script src="js/ending.js"></script>
 
 </body>
 
