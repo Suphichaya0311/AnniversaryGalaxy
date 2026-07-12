@@ -1,101 +1,59 @@
+/* ========================= */
+/* PUZZLE */
+/* ========================= */
 
-/* ===========================
-PUZZLE MEMORY
-=========================== */
+.puzzleContent{
 
-.puzzleBox{
-
-text-align:center;
+max-width:900px;
 
 }
 
 #puzzleArea{
 
-width:540px;
+width:420px;
+height:420px;
 
-margin:30px auto;
+margin:25px auto;
 
 display:grid;
 
-grid-template-columns:repeat(4,120px);
+grid-template-columns:repeat(4,1fr);
+grid-template-rows:repeat(4,1fr);
 
-grid-template-rows:repeat(5,120px);
-
-gap:8px;
-
-justify-content:center;
-
-align-items:center;
+gap:4px;
 
 }
 
-.piece{
+.puzzlePiece{
 
-width:120px;
+width:100%;
+height:100%;
 
-height:120px;
+border-radius:10px;
 
-border-radius:12px;
+cursor:pointer;
 
-cursor:grab;
-
-background-size:480px 600px;
-
-background-repeat:no-repeat;
+background-size:420px 420px;
 
 transition:.25s;
 
 box-shadow:
-
-0 0 12px rgba(255,255,255,.25);
+0 0 10px rgba(255,255,255,.2);
 
 }
 
-.piece:hover{
+.puzzlePiece:hover{
 
-transform:scale(1.05);
+transform:scale(1.04);
 
 box-shadow:
-
-0 0 20px #8b7dff;
-
-}
-
-.piece.dragging{
-
-opacity:.5;
-
-transform:scale(.95);
+0 0 18px rgba(255,255,255,.45);
 
 }
 
-.slot{
+.puzzlePiece.correct{
 
-width:120px;
-
-height:120px;
-
-border:2px dashed rgba(255,255,255,.25);
-
-border-radius:12px;
-
-transition:.3s;
-
-}
-
-.slot.over{
-
-border-color:white;
-
-background:rgba(255,255,255,.08);
-
-}
-
-.slot.correct{
-
-border:none;
-
-background:transparent;
+animation:pieceGlow .5s;
 
 }
 
@@ -103,13 +61,11 @@ background:transparent;
 
 display:none;
 
-font-size:140px;
+font-size:90px;
 
-margin-top:30px;
+margin-top:25px;
 
-animation:heartBoom 2s forwards;
-
-filter:drop-shadow(0 0 30px #ff5ca8);
+animation:heartPop .8s ease;
 
 }
 
@@ -117,55 +73,75 @@ filter:drop-shadow(0 0 30px #ff5ca8);
 
 display:none;
 
-margin-top:20px;
+margin-top:18px;
 
-font-size:30px;
+font-size:22px;
 
 color:white;
 
-text-shadow:
+line-height:1.7;
 
-0 0 15px #fff,
-
-0 0 30px #9d7cff;
-
-animation:fadeIn 2s forwards;
+animation:fadePuzzle 1s;
 
 }
 
-/* ===========================
-HEART RAIN
-=========================== */
+/* ========================= */
+/* COMPLETE EFFECT */
+/* ========================= */
 
-.heartParticle{
+.complete{
 
-position:absolute;
-
-font-size:20px;
-
-pointer-events:none;
-
-animation:heartRain 4s linear forwards;
+animation:completeFlash 1.2s;
 
 }
 
-@keyframes heartRain{
+/* ========================= */
+/* ANIMATION */
+/* ========================= */
+
+@keyframes pieceGlow{
 
 0%{
 
-opacity:0;
+transform:scale(.9);
 
-transform:
-
-translateY(0)
-
-scale(.4)
-
-rotate(0deg);
+opacity:.6;
 
 }
 
-20%{
+50%{
+
+transform:scale(1.08);
+
+box-shadow:
+0 0 20px #ffffff,
+0 0 35px #8f83ff;
+
+}
+
+100%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+@keyframes heartPop{
+
+0%{
+
+transform:scale(0);
+
+opacity:0;
+
+}
+
+70%{
+
+transform:scale(1.25);
 
 opacity:1;
 
@@ -173,115 +149,55 @@ opacity:1;
 
 100%{
 
+transform:scale(1);
+
+}
+
+}
+
+@keyframes fadePuzzle{
+
+from{
+
 opacity:0;
 
-transform:
+transform:translateY(20px);
 
-translateY(-500px)
+}
 
-translateX(100px)
+to{
 
-scale(1.5)
+opacity:1;
 
-rotate(360deg);
+transform:translateY(0);
 
 }
 
 }
 
-/* ===========================
-SUCCESS GLOW
-=========================== */
-
-.successGlow{
-
-animation:successGlow 2s infinite;
-
-}
-
-@keyframes successGlow{
+@keyframes completeFlash{
 
 0%{
 
-box-shadow:
+filter:brightness(1);
 
-0 0 10px #fff;
+}
+
+25%{
+
+filter:brightness(2);
 
 }
 
 50%{
 
-box-shadow:
-
-0 0 40px #ff82c6,
-
-0 0 80px #9d7cff;
+filter:brightness(1.4);
 
 }
 
 100%{
 
-box-shadow:
-
-0 0 10px #fff;
-
-}
-
-}
-
-/* ===========================
-PUZZLE IMAGE
-=========================== */
-
-#puzzlePreview{
-
-margin-top:20px;
-
-display:none;
-
-}
-
-#puzzlePreview img{
-
-width:220px;
-
-border-radius:18px;
-
-box-shadow:
-
-0 0 25px rgba(255,255,255,.4);
-
-}
-
-#puzzlePreview p{
-
-margin-top:15px;
-
-font-size:22px;
-
-color:white;
-
-}
-
-/* ===========================
-RESPONSIVE
-=========================== */
-
-@media(max-width:900px){
-
-#puzzleArea{
-
-transform:scale(.8);
-
-}
-
-}
-
-@media(max-width:700px){
-
-#puzzleArea{
-
-transform:scale(.65);
+filter:brightness(1);
 
 }
 
