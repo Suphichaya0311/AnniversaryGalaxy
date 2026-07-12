@@ -1,1 +1,480 @@
 
+/* ===========================
+GLOBAL ANIMATION
+=========================== */
+
+.fadeIn{
+animation:fadeIn 1.2s forwards;
+}
+
+.fadeOut{
+animation:fadeOut 1.2s forwards;
+}
+
+.zoomIn{
+animation:zoomIn 2s forwards;
+}
+
+.zoomOut{
+animation:zoomOut 2s forwards;
+}
+
+.rotateGalaxy{
+animation:rotateGalaxy 25s linear infinite;
+}
+
+.scaleGalaxy{
+animation:scaleGalaxy 18s ease-in-out infinite;
+}
+
+.blurIn{
+animation:blurIn 1.5s forwards;
+}
+
+.blurOut{
+animation:blurOut 1.5s forwards;
+}
+
+/* ===========================
+INTRO
+=========================== */
+
+.introHide{
+
+animation:introHide 2.5s forwards;
+
+}
+
+.zoomStart{
+
+animation:zoomStart 5s forwards;
+
+}
+
+.galaxyAppear{
+
+animation:galaxyAppear 2s forwards;
+
+}
+
+/* ===========================
+BUTTON
+=========================== */
+
+.pulse{
+
+animation:pulse 2s infinite;
+
+}
+
+.glow{
+
+animation:glow 2.5s infinite;
+
+}
+
+/* ===========================
+POPUP
+=========================== */
+
+.popupOpen{
+
+animation:popupOpen .8s forwards;
+
+}
+
+.popupClose{
+
+animation:popupClose .8s forwards;
+
+}
+
+/* ===========================
+MEMORY
+=========================== */
+
+.starOpen{
+
+animation:starOpen .8s forwards;
+
+}
+
+.imageOpen{
+
+animation:imageOpen .8s forwards;
+
+}
+
+/* ===========================
+BOOK
+=========================== */
+
+.pageNext{
+
+animation:pageNext .8s forwards;
+
+}
+
+.pagePrev{
+
+animation:pagePrev .8s forwards;
+
+}
+
+/* ===========================
+PUZZLE
+=========================== */
+
+.heartBoom{
+
+animation:heartBoom 2s forwards;
+
+}
+
+.finishGlow{
+
+animation:finishGlow 3s infinite;
+
+}
+
+/* ===========================
+ENDING
+=========================== */
+
+.constellation{
+
+animation:constellation 6s forwards;
+
+}
+
+.finalMessage{
+
+animation:finalMessage 3s forwards;
+
+}
+/* ===========================
+KEYFRAMES
+=========================== */
+
+@keyframes fadeIn{
+
+0%{
+opacity:0;
+}
+
+100%{
+opacity:1;
+}
+
+}
+
+@keyframes fadeOut{
+
+0%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+visibility:hidden;
+}
+
+}
+
+@keyframes zoomIn{
+
+0%{
+transform:scale(.2);
+opacity:0;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+@keyframes zoomOut{
+
+0%{
+transform:scale(1);
+}
+
+100%{
+transform:scale(8);
+opacity:0;
+}
+
+}
+
+@keyframes rotateGalaxy{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+@keyframes scaleGalaxy{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.06);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+@keyframes blurIn{
+
+0%{
+filter:blur(30px);
+opacity:0;
+}
+
+100%{
+filter:blur(0);
+opacity:1;
+}
+
+}
+
+@keyframes blurOut{
+
+0%{
+filter:blur(0);
+opacity:1;
+}
+
+100%{
+filter:blur(30px);
+opacity:0;
+}
+
+}
+
+@keyframes introHide{
+
+0%{
+opacity:1;
+transform:scale(1);
+}
+
+100%{
+opacity:0;
+transform:scale(1.4);
+visibility:hidden;
+}
+
+}
+
+@keyframes zoomStart{
+
+0%{
+transform:scale(.4) rotate(0deg);
+}
+
+100%{
+transform:scale(10) rotate(720deg);
+}
+
+}
+
+@keyframes galaxyAppear{
+
+0%{
+opacity:0;
+transform:scale(1.3);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+@keyframes glow{
+
+0%{
+box-shadow:0 0 10px #fff;
+}
+
+50%{
+box-shadow:0 0 40px #8b7dff;
+}
+
+100%{
+box-shadow:0 0 10px #fff;
+}
+
+}
+
+@keyframes popupOpen{
+
+0%{
+opacity:0;
+transform:translateY(40px) scale(.8);
+}
+
+100%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+}
+
+@keyframes popupClose{
+
+0%{
+opacity:1;
+transform:scale(1);
+}
+
+100%{
+opacity:0;
+transform:scale(.8);
+}
+
+}
+
+@keyframes starOpen{
+
+0%{
+transform:scale(.2);
+opacity:0;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+@keyframes imageOpen{
+
+0%{
+opacity:0;
+transform:scale(.8);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+@keyframes pageNext{
+
+0%{
+transform:rotateY(0deg);
+}
+
+100%{
+transform:rotateY(-180deg);
+}
+
+}
+
+@keyframes pagePrev{
+
+0%{
+transform:rotateY(-180deg);
+}
+
+100%{
+transform:rotateY(0deg);
+}
+
+}
+
+@keyframes heartBoom{
+
+0%{
+transform:scale(.3);
+opacity:0;
+}
+
+40%{
+opacity:1;
+}
+
+100%{
+transform:scale(2.5);
+opacity:0;
+}
+
+}
+
+@keyframes finishGlow{
+
+0%{
+box-shadow:0 0 10px white;
+}
+
+50%{
+box-shadow:0 0 40px #ff7ec8;
+}
+
+100%{
+box-shadow:0 0 10px white;
+}
+
+}
+
+@keyframes constellation{
+
+0%{
+opacity:0;
+transform:scale(.7);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+@keyframes finalMessage{
+
+0%{
+opacity:0;
+transform:translateY(30px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
