@@ -1,1 +1,288 @@
 
+/* ===========================
+PUZZLE MEMORY
+=========================== */
+
+.puzzleBox{
+
+text-align:center;
+
+}
+
+#puzzleArea{
+
+width:540px;
+
+margin:30px auto;
+
+display:grid;
+
+grid-template-columns:repeat(4,120px);
+
+grid-template-rows:repeat(5,120px);
+
+gap:8px;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.piece{
+
+width:120px;
+
+height:120px;
+
+border-radius:12px;
+
+cursor:grab;
+
+background-size:480px 600px;
+
+background-repeat:no-repeat;
+
+transition:.25s;
+
+box-shadow:
+
+0 0 12px rgba(255,255,255,.25);
+
+}
+
+.piece:hover{
+
+transform:scale(1.05);
+
+box-shadow:
+
+0 0 20px #8b7dff;
+
+}
+
+.piece.dragging{
+
+opacity:.5;
+
+transform:scale(.95);
+
+}
+
+.slot{
+
+width:120px;
+
+height:120px;
+
+border:2px dashed rgba(255,255,255,.25);
+
+border-radius:12px;
+
+transition:.3s;
+
+}
+
+.slot.over{
+
+border-color:white;
+
+background:rgba(255,255,255,.08);
+
+}
+
+.slot.correct{
+
+border:none;
+
+background:transparent;
+
+}
+
+#heartEnding{
+
+display:none;
+
+font-size:140px;
+
+margin-top:30px;
+
+animation:heartBoom 2s forwards;
+
+filter:drop-shadow(0 0 30px #ff5ca8);
+
+}
+
+#finishText{
+
+display:none;
+
+margin-top:20px;
+
+font-size:30px;
+
+color:white;
+
+text-shadow:
+
+0 0 15px #fff,
+
+0 0 30px #9d7cff;
+
+animation:fadeIn 2s forwards;
+
+}
+
+/* ===========================
+HEART RAIN
+=========================== */
+
+.heartParticle{
+
+position:absolute;
+
+font-size:20px;
+
+pointer-events:none;
+
+animation:heartRain 4s linear forwards;
+
+}
+
+@keyframes heartRain{
+
+0%{
+
+opacity:0;
+
+transform:
+
+translateY(0)
+
+scale(.4)
+
+rotate(0deg);
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+
+translateY(-500px)
+
+translateX(100px)
+
+scale(1.5)
+
+rotate(360deg);
+
+}
+
+}
+
+/* ===========================
+SUCCESS GLOW
+=========================== */
+
+.successGlow{
+
+animation:successGlow 2s infinite;
+
+}
+
+@keyframes successGlow{
+
+0%{
+
+box-shadow:
+
+0 0 10px #fff;
+
+}
+
+50%{
+
+box-shadow:
+
+0 0 40px #ff82c6,
+
+0 0 80px #9d7cff;
+
+}
+
+100%{
+
+box-shadow:
+
+0 0 10px #fff;
+
+}
+
+}
+
+/* ===========================
+PUZZLE IMAGE
+=========================== */
+
+#puzzlePreview{
+
+margin-top:20px;
+
+display:none;
+
+}
+
+#puzzlePreview img{
+
+width:220px;
+
+border-radius:18px;
+
+box-shadow:
+
+0 0 25px rgba(255,255,255,.4);
+
+}
+
+#puzzlePreview p{
+
+margin-top:15px;
+
+font-size:22px;
+
+color:white;
+
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+#puzzleArea{
+
+transform:scale(.8);
+
+}
+
+}
+
+@media(max-width:700px){
+
+#puzzleArea{
+
+transform:scale(.65);
+
+}
+
+}
