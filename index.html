@@ -24,150 +24,144 @@
 
 <body>
 
-<!-- ========================= -->
-<!-- MUSIC -->
-<!-- ========================= -->
-
-<audio id="bgMusic" loop autoplay>
+<audio id="bgMusic" autoplay loop>
 <source src="music/music.mp3" type="audio/mp3">
 </audio>
 
-<button id="musicBtn">
-<img src="icons/music.png">
-</button>
-
-<!-- ========================= -->
-<!-- INTRO -->
-<!-- ========================= -->
-
 <section id="intro">
 
-<div class="introBackground"></div>
+<div class="intro-bg"></div>
 
-<div class="introCard">
+<div class="intro-stars"></div>
+
+<div class="intro-content">
 
 <h2>Welcome To</h2>
 
 <h1>Our Galaxy</h1>
 
-<p>
-Every star keeps one memory of us ✨
-</p>
+<p>Every star keeps one memory of us ✨</p>
 
-<button id="enterGalaxy">
-Enter Our Galaxy
+<button id="heartButton">
+💜
 </button>
 
 </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- GALAXY -->
-<!-- ========================= -->
+<section id="zoomScene">
 
-<section id="galaxy">
+<div class="warpStars"></div>
 
-<div id="stars"></div>
+<div class="zoomGalaxy"></div>
+
+</section>
+
+<section id="galaxyScene">
+
+<div id="galaxyBackground"></div>
 
 <div id="shootingStars"></div>
 
-<div id="galaxyRotate"></div>
-<!-- ========================= -->
-<!-- MENU -->
-<!-- ========================= -->
+<div id="starsContainer"></div>
+<!-- ================= MENU ================= -->
 
-<div id="menuContainer">
+<div id="menu">
 
-<div class="menuItem" id="timerBtn">
-<img src="icons/timer.png">
-<span>Love Timer</span>
+<div class="menu-item" id="timerBtn">
+<img src="icons/timer.png" alt="">
+<p>Love Timer</p>
 </div>
 
-<div class="menuItem" id="letterBtn">
-<img src="icons/letter.png">
-<span>Letter</span>
+<div class="menu-item" id="letterBtn">
+<img src="icons/letter.png" alt="">
+<p>Letter</p>
 </div>
 
-<div class="menuItem" id="puzzleBtn">
-<img src="icons/puzzle.png">
-<span>Puzzle</span>
+<div class="menu-item" id="memoryBtn">
+<img src="icons/star.png" alt="">
+<p>Memory</p>
 </div>
 
-<div class="menuItem" id="memoryBtn">
-<img src="icons/star.png">
-<span>Memory</span>
+<div class="menu-item" id="storyBtn">
+<img src="icons/book.png" alt="">
+<p>Story Book</p>
 </div>
 
-<div class="menuItem" id="storyBtn">
-<img src="icons/book.png">
-<span>Story Book</span>
+<div class="menu-item" id="puzzleBtn">
+<img src="icons/puzzle.png" alt="">
+<p>Puzzle</p>
 </div>
 
-<div class="menuItem" id="wishBtn">
-<img src="icons/shootingstar.png">
-<span>Wish Star</span>
+<div class="menu-item" id="wishBtn">
+<img src="icons/shootingstar.png" alt="">
+<p>Wish Star</p>
 </div>
 
-<div class="menuItem" id="constellationBtn">
+<div class="menu-item" id="constellationBtn">
 ⭐
-<span>Constellation</span>
+<p>Constellation</p>
 </div>
 
 </div>
 
-<!-- ========================= -->
-<!-- CHARACTERS -->
-<!-- ========================= -->
+<!-- ================= CHARACTERS ================= -->
 
 <div id="characters">
 
-<img src="images/characters/1.png" class="animal animal1">
+<img src="images/characters/1.png" class="animal" id="animal1">
 
-<img src="images/characters/2.png" class="animal animal2">
+<img src="images/characters/2.png" class="animal" id="animal2">
 
-<img src="images/characters/3.png" class="animal animal3">
+<img src="images/characters/3.png" class="animal" id="animal3">
 
-<img src="images/characters/4.png" class="animal animal4">
+<img src="images/characters/4.png" class="animal" id="animal4">
 
-<img src="images/characters/5.png" class="animal animal5">
+<img src="images/characters/5.png" class="animal" id="animal5">
 
 </div>
-<!-- ========================= -->
-<!-- LOVE TIMER -->
-<!-- ========================= -->
+
+<!-- ================= MUSIC ================= -->
+
+<button id="musicButton">
+
+<img src="icons/music.png" alt="">
+
+</button>
+<!-- ================= TIMER POPUP ================= -->
 
 <div class="popup" id="timerPopup">
 
-<div class="popupBox">
+<div class="popup-content">
 
 <span class="close">&times;</span>
 
-<h2>Since We Met ❤️</h2>
+<h2>❤️ Love Timer ❤️</h2>
 
 <div id="loveTimer">
 
-<div>
+<div class="timeBox">
 <h3 id="year">0</h3>
 <p>Years</p>
 </div>
 
-<div>
+<div class="timeBox">
 <h3 id="day">0</h3>
 <p>Days</p>
 </div>
 
-<div>
+<div class="timeBox">
 <h3 id="hour">0</h3>
 <p>Hours</p>
 </div>
 
-<div>
+<div class="timeBox">
 <h3 id="minute">0</h3>
 <p>Minutes</p>
 </div>
 
-<div>
+<div class="timeBox">
 <h3 id="second">0</h3>
 <p>Seconds</p>
 </div>
@@ -178,21 +172,21 @@ Enter Our Galaxy
 
 </div>
 
-<!-- ========================= -->
-<!-- LETTER -->
-<!-- ========================= -->
+<!-- ================= LETTER POPUP ================= -->
 
 <div class="popup" id="letterPopup">
 
-<div class="popupBox">
+<div class="popup-content">
 
 <span class="close">&times;</span>
 
-<h2>To My Love 💜</h2>
+<h2>💌 Letter</h2>
 
-<p class="letterText">
+<div class="letterBox">
 
-ข้อความของออยใส่ตรงนี้ภายหลัง
+<p id="letterText">
+
+ตรงนี้เดี๋ยวออยเขียนจดหมายทีหลัง
 
 </p>
 
@@ -200,36 +194,34 @@ Enter Our Galaxy
 
 </div>
 
-<!-- ========================= -->
-<!-- MEMORY -->
-<!-- ========================= -->
+</div>
+
+<!-- ================= MEMORY POPUP ================= -->
 
 <div class="popup" id="memoryPopup">
 
-<div class="popupBox">
+<div class="popup-content">
 
 <span class="close">&times;</span>
 
-<h2>Memory Galaxy ✨</h2>
+<h2>✨ Memory Galaxy ✨</h2>
 
-<img id="memoryImage">
+<img id="memoryImage" src="">
 
 <p id="memoryCaption"></p>
 
 </div>
 
 </div>
-<!-- ========================= -->
-<!-- PUZZLE -->
-<!-- ========================= -->
+<!-- ================= PUZZLE ================= -->
 
 <div class="popup" id="puzzlePopup">
 
-<div class="popupBox puzzleBox">
+<div class="popup-content puzzleContent">
 
 <span class="close">&times;</span>
 
-<h2>Memory Puzzle 🧩</h2>
+<h2>🧩 Memory Puzzle</h2>
 
 <div id="puzzleArea"></div>
 
@@ -243,25 +235,40 @@ Every piece brought us closer together.
 
 </div>
 
-<!-- ========================= -->
-<!-- STORY BOOK -->
-<!-- ========================= -->
+<!-- ================= STORY BOOK ================= -->
 
 <div class="popup" id="storyPopup">
 
-<div class="popupBox storyBook">
+<div class="popup-content">
 
 <span class="close">&times;</span>
 
-<h2>Story Book 📖</h2>
+<h2>📖 Story Book</h2>
 
-<div class="bookPage">
+<div id="storyBook">
 
+<div class="page active">
 <h3>Chapter 1</h3>
+<p>Our story began with one little meeting...</p>
+</div>
 
-<p>
-Our story began with one little meeting...
-</p>
+<div class="page">
+<h3>Chapter 2</h3>
+<p>Every smile became another beautiful memory.</p>
+</div>
+
+<div class="page">
+<h3>Chapter 3</h3>
+<p>And together we built our own galaxy.</p>
+</div>
+
+</div>
+
+<div class="storyButtons">
+
+<button id="prevPage">◀</button>
+
+<button id="nextPage">▶</button>
 
 </div>
 
@@ -269,89 +276,18 @@ Our story began with one little meeting...
 
 </div>
 
-<!-- ========================= -->
-<!-- CONSTELLATION -->
-<!-- ========================= -->
-
-<div id="constellationEnding">
-
-<canvas id="constellationCanvas"></canvas>
-
-<div class="endingMessage">
-
-<h1>Every memory made our own constellation.</h1>
-
-<p>
-Thank you for being my universe. 💜
-</p>
-
-<button id="restartGalaxy">
-Start Again
-</button>
-
-</div>
-
-</div>
-
-</section>
-<!-- ========================= -->
-<!-- IMAGE POPUP -->
-<!-- ========================= -->
-
-<div class="popup" id="imagePopup">
-
-<div class="popupBox imageBox">
-
-<span class="close">&times;</span>
-
-<img id="popupImage" src="" alt="Memory">
-
-<p id="popupText"></p>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- MUSIC POPUP -->
-<!-- ========================= -->
-
-<div class="popup" id="musicPopup">
-
-<div class="popupBox">
-
-<span class="close">&times;</span>
-
-<h2>Our Song 🎵</h2>
-
-<p>
-ณ ความรัก - สุดเขตจึงเจริญ feat. ปริศนา กัมพูสิริ
-</p>
-
-<button id="musicToggle">
-Pause Music
-</button>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- WISH STAR -->
-<!-- ========================= -->
+<!-- ================= WISH STAR ================= -->
 
 <div class="popup" id="wishPopup">
 
-<div class="popupBox">
+<div class="popup-content">
 
 <span class="close">&times;</span>
 
-<h2>Wish Upon A Star 🌠</h2>
+<h2>🌠 Wish Upon A Star</h2>
 
 <p>
-Close your eyes...
-Make a wish...
-Then click the shooting star.
+Close your eyes, make a wish and press the star.
 </p>
 
 <button id="wishButton">
@@ -362,29 +298,56 @@ Then click the shooting star.
 
 </div>
 
-<!-- ========================= -->
-<!-- FLOATING MUSIC BUTTON -->
-<!-- ========================= -->
+<!-- ================= IMAGE POPUP ================= -->
 
-<button id="musicFloating">
+<div class="popup" id="imagePopup">
 
-<img src="icons/music.png" alt="Music">
+<div class="popup-content imageContent">
+
+<span class="close">&times;</span>
+
+<img id="popupImage" src="">
+
+<p id="popupText"></p>
+
+</div>
+
+</div>
+
+<!-- ================= CONSTELLATION ================= -->
+
+<div id="constellationEnding">
+
+<canvas id="constellationCanvas"></canvas>
+
+<div class="endingMessage">
+
+<h1>Every memory made our own constellation.</h1>
+
+<p>Thank you for being my universe ❤️</p>
+
+<button id="restartGalaxy">
+
+Start Again
 
 </button>
 
-<!-- ========================= -->
-<!-- LOADING -->
-<!-- ========================= -->
+</div>
+
+</div>
+
+</section>
+<!-- ================= LOADING ================= -->
 
 <div id="loadingScreen">
 
-<div class="loaderGalaxy">
+<div class="loader">
 
-<div class="ring"></div>
+<div class="ring ring1"></div>
 
-<div class="ring"></div>
+<div class="ring ring2"></div>
 
-<div class="ring"></div>
+<div class="ring ring3"></div>
 
 </div>
 
@@ -392,17 +355,25 @@ Then click the shooting star.
 
 </div>
 
-<!-- ========================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================= -->
+<!-- ================= AUDIO EFFECT ================= -->
+
+
+<!-- ================= JAVASCRIPT ================= -->
 
 <script src="js/intro.js"></script>
+
 <script src="js/galaxy.js"></script>
+
 <script src="js/music.js"></script>
+
 <script src="js/popup.js"></script>
+
 <script src="js/timer.js"></script>
+
 <script src="js/memory.js"></script>
+
 <script src="js/puzzle.js"></script>
+
 <script src="js/ending.js"></script>
 
 </body>
