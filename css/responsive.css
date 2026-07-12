@@ -1,1 +1,335 @@
+/* ===========================
+DESKTOP
+=========================== */
 
+@media (min-width:1200px){
+
+.menu{
+
+grid-template-columns:repeat(4,180px);
+
+gap:35px;
+
+}
+
+.popupBox{
+
+max-width:950px;
+
+}
+
+}
+
+/* ===========================
+LAPTOP
+=========================== */
+
+@media (max-width:1199px){
+
+.intro-content h1{
+
+font-size:70px;
+
+}
+
+.intro-content h2{
+
+font-size:32px;
+
+}
+
+.menu{
+
+grid-template-columns:repeat(3,180px);
+
+gap:25px;
+
+}
+
+.book{
+
+width:600px;
+
+height:400px;
+
+}
+
+}
+
+/* ===========================
+TABLET
+=========================== */
+
+@media (max-width:900px){
+
+.intro-content{
+
+width:90%;
+
+padding:30px;
+
+}
+
+.intro-content h1{
+
+font-size:52px;
+
+}
+
+.intro-content h2{
+
+font-size:28px;
+
+}
+
+.intro-content p{
+
+font-size:18px;
+
+}
+
+#heartButton{
+
+width:80px;
+
+height:80px;
+
+font-size:38px;
+
+}
+
+.menu{
+
+grid-template-columns:repeat(2,170px);
+
+gap:20px;
+
+}
+
+.menuItem{
+
+padding:20px;
+
+}
+
+.menuItem img{
+
+width:60px;
+
+height:60px;
+
+}
+
+.popupBox{
+
+width:92%;
+
+padding:25px;
+
+}
+
+.book{
+
+width:100%;
+
+height:360px;
+
+}
+
+.memoryGrid{
+
+grid-template-columns:repeat(4,1fr);
+
+}
+
+.moon{
+
+width:130px;
+
+height:130px;
+
+top:30px;
+
+right:30px;
+
+}
+
+}
+
+/* ===========================
+MOBILE
+=========================== */
+
+@media (max-width:600px){
+
+.intro-content{
+
+padding:20px;
+
+}
+
+.intro-content h1{
+
+font-size:38px;
+
+}
+
+.intro-content h2{
+
+font-size:24px;
+
+}
+
+.intro-content p{
+
+font-size:16px;
+
+}
+
+#heartButton{
+
+width:70px;
+
+height:70px;
+
+font-size:30px;
+
+}
+
+.menu{
+
+grid-template-columns:1fr;
+
+gap:15px;
+
+width:90%;
+
+}
+
+.menuItem{
+
+padding:18px;
+
+}
+
+.menuItem img{
+
+width:50px;
+
+height:50px;
+
+}
+
+.popupBox{
+
+padding:18px;
+
+border-radius:20px;
+
+}
+
+#loveTimer{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.memoryGrid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.book{
+
+height:280px;
+
+}
+
+.bookButtons{
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+.bookButtons button{
+
+width:100%;
+
+}
+
+#musicFloating{
+
+bottom:20px;
+
+right:20px;
+
+width:55px;
+
+height:55px;
+
+font-size:20px;
+
+}
+
+.moon{
+
+width:90px;
+
+height:90px;
+
+}
+
+}
+
+/* ===========================
+SMALL MOBILE
+=========================== */
+
+@media (max-width:380px){
+
+.intro-content h1{
+
+font-size:30px;
+
+}
+
+.intro-content h2{
+
+font-size:20px;
+
+}
+
+.intro-content p{
+
+font-size:14px;
+
+}
+
+.menuItem span{
+
+font-size:18px;
+
+}
+
+.popupBox h2{
+
+font-size:28px;
+
+}
+
+#loveTimer h3{
+
+font-size:28px;
+
+}
+
+#loveTimer p{
+
+font-size:14px;
+
+}
+
+}
