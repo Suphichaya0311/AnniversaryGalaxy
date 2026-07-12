@@ -4,26 +4,26 @@
 // ==============================
 
 const memoryImages=[
-"images/gallery/photo01.jpg",
-"images/gallery/photo02.jpg",
-"images/gallery/photo03.jpg",
-"images/gallery/photo04.jpg",
-"images/gallery/photo05.jpg",
-"images/gallery/photo06.jpg",
-"images/gallery/photo07.jpg",
-"images/gallery/photo08.jpg",
-"images/gallery/photo09.jpg",
-"images/gallery/photo10.jpg",
-"images/gallery/photo11.jpg",
-"images/gallery/photo12.jpg",
-"images/gallery/photo13.jpg",
-"images/gallery/photo14.jpg",
-"images/gallery/photo15.jpg",
-"images/gallery/photo16.jpg",
-"images/gallery/photo17.jpg",
-"images/gallery/photo18.jpg",
-"images/gallery/photo19.jpg",
-"images/gallery/photo20.jpg"
+"images/gallery/memory01.jpg",
+"images/gallery/memory02.jpg",
+"images/gallery/memory03.jpg",
+"images/gallery/memory04.jpg",
+"images/gallery/memory05.jpg",
+"images/gallery/memory06.jpg",
+"images/gallery/memory07.jpg",
+"images/gallery/memory08.jpg",
+"images/gallery/memory09.jpg",
+"images/gallery/memory10.jpg",
+"images/gallery/memory11.jpg",
+"images/gallery/memory12.jpg",
+"images/gallery/memory13.jpg",
+"images/gallery/memory14.jpg",
+"images/gallery/memory15.jpg",
+"images/gallery/memory16.jpg",
+"images/gallery/memory17.jpg",
+"images/gallery/memory18.jpg",
+"images/gallery/memory19.jpg",
+"images/gallery/memory20.jpg"
 ];
 
 // ==============================
