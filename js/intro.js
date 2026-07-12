@@ -1,236 +1,165 @@
-
-// ===============================
+// =========================
 // INTRO
-// ===============================
+// =========================
 
-const intro = document.getElementById("intro");
-const zoomScene = document.getElementById("zoomScene");
-const galaxyWorld = document.getElementById("galaxyWorld");
+const intro=document.getElementById("intro");
+const zoomScene=document.getElementById("zoomScene");
+const galaxyScene=document.getElementById("galaxyScene");
 
-const heartButton = document.getElementById("heartButton");
+const heartButton=document.getElementById("heartButton");
 
-const bgMusic = document.getElementById("bgMusic");
+const bgMusic=document.getElementById("bgMusic");
 
-const loadingScreen = document.getElementById("loadingScreen");
-
-const musicButton = document.getElementById("musicFloating");
-
-// ===============================
+// =========================
 // START
-// ===============================
+// =========================
 
-window.onload=()=>{
+heartButton.addEventListener("click",startGalaxy);
 
-loadingScreen.style.display="none";
+function startGalaxy(){
 
-};
+// เล่นเพลง
+bgMusic.volume=0.45;
 
-// ===============================
-// HEART
-// ===============================
+bgMusic.play().catch(()=>{});
 
-heartButton.addEventListener("click",()=>{
+// ซ่อน Intro
+intro.classList.add("fadeOut");
 
-heartButton.disabled=true;
-
-playMusic();
-
-intro.classList.add("introHide");
-
+// แสดงฉาก Zoom
 setTimeout(()=>{
 
 intro.style.display="none";
 
 zoomScene.style.display="flex";
 
-zoomScene.classList.add("zoomStart");
+createWarpStars();
 
-},1800);
+},900);
 
+// Zoom เข้า Galaxy
+setTimeout(()=>{
+
+zoomScene.classList.add("fadeOut");
+
+},4200);
+
+// เข้า Galaxy
 setTimeout(()=>{
 
 zoomScene.style.display="none";
 
-galaxyWorld.style.display="block";
+galaxyScene.style.display="block";
 
-galaxyWorld.classList.add("galaxyAppear");
+galaxyScene.classList.add("fadeIn");
 
-},5600);
-
-});
-
-// ===============================
-// MUSIC
-// ===============================
-
-function playMusic(){
-
-bgMusic.volume=.45;
-
-bgMusic.play().catch(()=>{});
+},5000);
 
 }
 
-// ===============================
-// BUTTON
-// ===============================
+// =========================
+// WARP STAR
+// =========================
 
-musicButton.addEventListener("click",()=>{
+function createWarpStars(){
 
-if(bgMusic.paused){
+const container=document.querySelector(".warpStars");
 
-bgMusic.play();
+container.innerHTML="";
 
-musicButton.innerHTML="🔊";
-
-}
-
-else{
-
-bgMusic.pause();
-
-musicButton.innerHTML="🔇";
-
-}
-
-});
-
-// ===============================
-// ESC
-// ===============================
-
-document.addEventListener("keydown",(e)=>{
-
-if(e.key==="Escape"){
-
-document.querySelectorAll(".popup").forEach(p=>{
-
-p.classList.remove("active");
-
-});
-
-}
-
-});
-
-// ===============================
-// LOADING EFFECT
-// ===============================
-
-window.addEventListener("load",()=>{
-
-setTimeout(()=>{
-
-loadingScreen.style.opacity="0";
-
-setTimeout(()=>{
-
-loadingScreen.style.display="none";
-
-},1000);
-
-},800);
-
-});
-
-// ===============================
-// INTRO STAR
-// ===============================
-
-const introStars=document.querySelector(".intro-stars");
-
-for(let i=0;i<120;i++){
+for(let i=0;i<260;i++){
 
 const star=document.createElement("div");
 
-star.style.position="absolute";
-
-star.style.width=Math.random()*3+1+"px";
-
-star.style.height=star.style.width;
-
-star.style.background="white";
-
-star.style.borderRadius="50%";
+star.className="warpStar";
 
 star.style.left=Math.random()*100+"%";
 
 star.style.top=Math.random()*100+"%";
 
-star.style.opacity=Math.random();
+star.style.animationDelay=Math.random()*2+"s";
 
-star.style.animation=`twinkleStar ${2+Math.random()*4}s infinite`;
+star.style.animationDuration=
+(1+Math.random()*2)+"s";
 
-introStars.appendChild(star);
+container.appendChild(star);
 
 }
 
-// ===============================
-// HEART PULSE
-// ===============================
+}
+
+// =========================
+// LOADING
+// =========================
+
+window.addEventListener("load",()=>{
+
+const loading=document.getElementById("loadingScreen");
+
+setTimeout(()=>{
+
+loading.style.opacity="0";
+
+setTimeout(()=>{
+
+loading.style.display="none";
+
+},800);
+
+},1000);
+
+});
+
+// =========================
+// HEART EFFECT
+// =========================
 
 setInterval(()=>{
 
-heartButton.animate([
+const heart=document.createElement("div");
 
-{
+heart.innerHTML="❤";
 
-transform:"scale(1)"
+heart.style.position="fixed";
 
-},
+heart.style.left=(45+Math.random()*10)+"%";
 
-{
+heart.style.top="62%";
 
-transform:"scale(1.18)"
+heart.style.color="#ff5ca8";
 
-},
+heart.style.pointerEvents="none";
 
-{
+heart.style.fontSize=
+(12+Math.random()*16)+"px";
 
-transform:"scale(1)"
+heart.style.opacity=".9";
 
-}
+heart.style.transition="2.5s";
 
-],{
+document.body.appendChild(heart);
 
-duration:900
+setTimeout(()=>{
 
-});
+heart.style.transform=
+`translate(
+${Math.random()*120-60}px,
+-${180+Math.random()*120}px
+)
+scale(${1+Math.random()})`;
 
-},1800);
+heart.style.opacity="0";
 
-// ===============================
-// TITLE FLOAT
-// ===============================
+},50);
 
-document.querySelector(".intro-content").animate([
+setTimeout(()=>{
 
-{
+heart.remove();
 
-transform:"translateY(0px)"
+},2600);
 
-},
+},900);
 
-{
-
-transform:"translateY(-8px)"
-
-},
-
-{
-
-transform:"translateY(0px)"
-
-}
-
-],{
-
-duration:4000,
-
-iterations:Infinity
-
-});
-
-// ===============================
+// =========================
 // END
-// ===============================
+// =========================
