@@ -1,64 +1,22 @@
-/* ===========================
-DESKTOP
-=========================== */
+/* ========================= */
+/* LARGE SCREEN */
+/* ========================= */
 
-@media (min-width:1200px){
+@media (max-width:1200px){
 
-.menu{
+#menu{
 
-grid-template-columns:repeat(4,180px);
-
-gap:35px;
-
-}
-
-.popupBox{
-
-max-width:950px;
-
-}
-
-}
-
-/* ===========================
-LAPTOP
-=========================== */
-
-@media (max-width:1199px){
-
-.intro-content h1{
-
-font-size:70px;
-
-}
-
-.intro-content h2{
-
-font-size:32px;
-
-}
-
-.menu{
-
-grid-template-columns:repeat(3,180px);
+grid-template-columns:repeat(3,120px);
 
 gap:25px;
 
 }
 
-.book{
-
-width:600px;
-
-height:400px;
-
 }
 
-}
-
-/* ===========================
-TABLET
-=========================== */
+/* ========================= */
+/* TABLET */
+/* ========================= */
 
 @media (max-width:900px){
 
@@ -66,19 +24,19 @@ TABLET
 
 width:90%;
 
-padding:30px;
+padding:35px;
 
 }
 
 .intro-content h1{
 
-font-size:52px;
+font-size:60px;
 
 }
 
 .intro-content h2{
 
-font-size:28px;
+font-size:30px;
 
 }
 
@@ -94,25 +52,19 @@ width:80px;
 
 height:80px;
 
-font-size:38px;
+font-size:34px;
 
 }
 
-.menu{
+#menu{
 
-grid-template-columns:repeat(2,170px);
+grid-template-columns:repeat(2,120px);
 
-gap:20px;
-
-}
-
-.menuItem{
-
-padding:20px;
+gap:22px;
 
 }
 
-.menuItem img{
+.menu-item img{
 
 width:60px;
 
@@ -120,7 +72,13 @@ height:60px;
 
 }
 
-.popupBox{
+.menu-item p{
+
+font-size:16px;
+
+}
+
+.popup-content{
 
 width:92%;
 
@@ -128,49 +86,55 @@ padding:25px;
 
 }
 
-.book{
+#loveTimer{
 
-width:100%;
-
-height:360px;
+gap:12px;
 
 }
 
-.memoryGrid{
+.timeBox{
 
-grid-template-columns:repeat(4,1fr);
-
-}
-
-.moon{
-
-width:130px;
-
-height:130px;
-
-top:30px;
-
-right:30px;
+width:85px;
 
 }
 
+#puzzleArea{
+
+width:340px;
+
+height:340px;
+
 }
 
-/* ===========================
-MOBILE
-=========================== */
+.puzzlePiece{
+
+background-size:340px 340px;
+
+}
+
+.animal{
+
+width:75px;
+
+}
+
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
 
 @media (max-width:600px){
 
 .intro-content{
 
-padding:20px;
+padding:25px;
 
 }
 
 .intro-content h1{
 
-font-size:38px;
+font-size:42px;
 
 }
 
@@ -192,27 +156,19 @@ width:70px;
 
 height:70px;
 
-font-size:30px;
+font-size:28px;
 
 }
 
-.menu{
+#menu{
 
-grid-template-columns:1fr;
+grid-template-columns:repeat(2,110px);
 
-gap:15px;
-
-width:90%;
+gap:18px;
 
 }
 
-.menuItem{
-
-padding:18px;
-
-}
-
-.menuItem img{
+.menu-item img{
 
 width:50px;
 
@@ -220,79 +176,107 @@ height:50px;
 
 }
 
-.popupBox{
+.menu-item p{
 
-padding:18px;
+font-size:14px;
+
+}
+
+.popup-content{
+
+padding:20px;
 
 border-radius:20px;
 
 }
 
-#loveTimer{
+.popup-content h2{
 
-grid-template-columns:repeat(2,1fr);
-
-}
-
-.memoryGrid{
-
-grid-template-columns:repeat(2,1fr);
+font-size:28px;
 
 }
 
-.book{
+.timeBox{
+
+width:72px;
+
+padding:10px;
+
+}
+
+.timeBox h3{
+
+font-size:26px;
+
+}
+
+.timeBox p{
+
+font-size:13px;
+
+}
+
+#puzzleArea{
+
+width:280px;
 
 height:280px;
 
 }
 
-.bookButtons{
+.puzzlePiece{
 
-flex-direction:column;
-
-gap:10px;
+background-size:280px 280px;
 
 }
 
-.bookButtons button{
+.animal{
 
-width:100%;
+width:60px;
 
 }
 
-#musicFloating{
-
-bottom:20px;
-
-right:20px;
+#musicButton{
 
 width:55px;
 
 height:55px;
 
-font-size:20px;
+right:15px;
+
+bottom:15px;
 
 }
 
-.moon{
+#musicButton img{
 
-width:90px;
+width:28px;
 
-height:90px;
+}
+
+.endingMessage h1{
+
+font-size:28px;
+
+}
+
+.endingMessage p{
+
+font-size:16px;
 
 }
 
 }
 
-/* ===========================
-SMALL MOBILE
-=========================== */
+/* ========================= */
+/* SMALL MOBILE */
+/* ========================= */
 
 @media (max-width:380px){
 
 .intro-content h1{
 
-font-size:30px;
+font-size:34px;
 
 }
 
@@ -308,27 +292,31 @@ font-size:14px;
 
 }
 
-.menuItem span{
+#menu{
 
-font-size:18px;
+grid-template-columns:1fr;
 
-}
-
-.popupBox h2{
-
-font-size:28px;
+gap:15px;
 
 }
 
-#loveTimer h3{
+#puzzleArea{
 
-font-size:28px;
+width:240px;
+
+height:240px;
 
 }
 
-#loveTimer p{
+.puzzlePiece{
 
-font-size:14px;
+background-size:240px 240px;
+
+}
+
+.popup-content h2{
+
+font-size:24px;
 
 }
 
