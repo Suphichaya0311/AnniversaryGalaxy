@@ -1,50 +1,36 @@
+// =========================
+// GALAXY
+// =========================
 
-// ==============================
-// GALAXY WORLD
-// ==============================
+const starsContainer = document.getElementById("starsContainer");
+const shootingStars = document.getElementById("shootingStars");
 
-const starContainer=document.getElementById("starContainer");
-const shootingStars=document.getElementById("shootingStars");
-const heartParticles=document.getElementById("heartParticles");
-
-// ==============================
+// =========================
 // CREATE STARS
-// ==============================
+// =========================
 
 function createStars(){
+
+starsContainer.innerHTML="";
 
 for(let i=0;i<300;i++){
 
 const star=document.createElement("div");
 
-star.classList.add("star");
-
-const r=Math.random();
-
-if(r<0.6){
-
-star.classList.add("small");
-
-}
-
-else if(r<0.9){
-
-star.classList.add("medium");
-
-}
-
-else{
-
-star.classList.add("big");
-
-}
+star.className="star";
 
 star.style.left=Math.random()*100+"%";
+
 star.style.top=Math.random()*100+"%";
 
-star.style.animationDelay=Math.random()*5+"s";
+star.style.animationDelay=Math.random()*3+"s";
 
-starContainer.appendChild(star);
+star.style.animationDuration=
+(2+Math.random()*4)+"s";
+
+star.style.opacity=.3+Math.random();
+
+starsContainer.appendChild(star);
 
 }
 
@@ -52,19 +38,22 @@ starContainer.appendChild(star);
 
 createStars();
 
-// ==============================
+// =========================
 // SHOOTING STAR
-// ==============================
+// =========================
 
-function shootingStar(){
+function createShootingStar(){
 
 const star=document.createElement("div");
 
 star.className="shootingStar";
 
+star.style.left=(-10+Math.random()*20)+"%";
+
 star.style.top=Math.random()*35+"%";
 
-star.style.left=(80+Math.random()*20)+"%";
+star.style.animationDuration=
+(2+Math.random())+"s";
 
 shootingStars.appendChild(star);
 
@@ -72,298 +61,153 @@ setTimeout(()=>{
 
 star.remove();
 
-},4000);
+},3500);
 
 }
 
-setInterval(()=>{
+setInterval(createShootingStar,2200);
 
-shootingStar();
+// =========================
+// MENU POPUP
+// =========================
 
-},6000);
+const timerBtn=document.getElementById("timerBtn");
+const letterBtn=document.getElementById("letterBtn");
+const memoryBtn=document.getElementById("memoryBtn");
+const storyBtn=document.getElementById("storyBtn");
+const puzzleBtn=document.getElementById("puzzleBtn");
+const wishBtn=document.getElementById("wishBtn");
 
-// ==============================
-// HEART FLOAT
-// ==============================
+const timerPopup=document.getElementById("timerPopup");
+const letterPopup=document.getElementById("letterPopup");
+const memoryPopup=document.getElementById("memoryPopup");
+const storyPopup=document.getElementById("storyPopup");
+const puzzlePopup=document.getElementById("puzzlePopup");
+const wishPopup=document.getElementById("wishPopup");
 
-function createHeart(){
+timerBtn.onclick=()=>timerPopup.style.display="flex";
 
-const heart=document.createElement("div");
+letterBtn.onclick=()=>letterPopup.style.display="flex";
 
-heart.className="heart";
+memoryBtn.onclick=()=>memoryPopup.style.display="flex";
 
-heart.innerHTML="❤";
+storyBtn.onclick=()=>storyPopup.style.display="flex";
 
-heart.style.left=Math.random()*100+"%";
+puzzleBtn.onclick=()=>puzzlePopup.style.display="flex";
 
-heart.style.bottom="-30px";
+wishBtn.onclick=()=>wishPopup.style.display="flex";
 
-heart.style.fontSize=(10+Math.random()*18)+"px";
+// =========================
+// CLOSE POPUP
+// =========================
 
-heartParticles.appendChild(heart);
+document.querySelectorAll(".close").forEach(btn=>{
+
+btn.onclick=function(){
+
+this.parentElement.parentElement.style.display="none";
+
+}
+
+});
+
+window.onclick=function(e){
+
+document.querySelectorAll(".popup").forEach(pop=>{
+
+if(e.target===pop){
+
+pop.style.display="none";
+
+}
+
+});
+
+};
+
+// =========================
+// ANIMALS
+// =========================
+
+document.querySelectorAll(".animal").forEach(animal=>{
+
+animal.onclick=function(){
+
+this.style.transform="scale(1.25)";
 
 setTimeout(()=>{
 
-heart.remove();
+this.style.transform="";
 
-},8000);
+},300);
 
-}
-
-setInterval(()=>{
-
-createHeart();
-
-},1800);
-
-// ==============================
-// STAR DUST
-// ==============================
-
-function createDust(){
-
-const dust=document.createElement("div");
-
-dust.className="dust";
-
-dust.style.left=Math.random()*100+"%";
-
-dust.style.top=(80+Math.random()*20)+"%";
-
-starContainer.appendChild(dust);
-
-setTimeout(()=>{
-
-dust.remove();
-
-},12000);
-
-}
-
-setInterval(createDust,700);
-// ==============================
-// MOUSE PARALLAX
-// ==============================
-
-document.addEventListener("mousemove",(e)=>{
-
-const x=(e.clientX/window.innerWidth-.5)*20;
-const y=(e.clientY/window.innerHeight-.5)*20;
-
-const glow=document.querySelector(".galaxyGlow");
-
-if(glow){
-
-glow.style.transform=`translate(${x}px,${y}px)`;
-
-}
+};
 
 });
 
-// ==============================
-// STAR HOVER EFFECT
-// ==============================
+// =========================
+// MUSIC BUTTON
+// =========================
 
-document.addEventListener("mousemove",(e)=>{
+const musicButton=document.getElementById("musicButton");
+const bgMusic=document.getElementById("bgMusic");
 
-const stars=document.querySelectorAll(".star");
+musicButton.onclick=function(){
 
-stars.forEach((star)=>{
+if(bgMusic.paused){
 
-const rect=star.getBoundingClientRect();
+bgMusic.play();
 
-const dx=e.clientX-(rect.left+rect.width/2);
+}else{
 
-const dy=e.clientY-(rect.top+rect.height/2);
-
-const distance=Math.sqrt(dx*dx+dy*dy);
-
-if(distance<80){
-
-star.style.transform="scale(2)";
-
-star.style.boxShadow="0 0 15px white";
+bgMusic.pause();
 
 }
 
-else{
+};
 
-star.style.transform="scale(1)";
+// =========================
+// STORY BOOK
+// =========================
 
-star.style.boxShadow="none";
+const pages=document.querySelectorAll(".page");
 
-}
+let currentPage=0;
 
-});
+function showPage(){
 
-});
+pages.forEach(p=>p.classList.remove("active"));
 
-// ==============================
-// RANDOM STAR BLINK
-// ==============================
-
-setInterval(()=>{
-
-const stars=document.querySelectorAll(".star");
-
-const random=stars[Math.floor(Math.random()*stars.length)];
-
-if(!random) return;
-
-random.animate([
-
-{opacity:.3},
-
-{opacity:1},
-
-{opacity:.3}
-
-],{
-
-duration:1200
-
-});
-
-},350);
-
-// ==============================
-// CONSTELLATION
-// ==============================
-
-let memoryOpened=0;
-
-function unlockMemory(){
-
-memoryOpened++;
-
-if(memoryOpened>=20){
-
-showConstellation();
+pages[currentPage].classList.add("active");
 
 }
 
-}
+document.getElementById("nextPage").onclick=()=>{
 
-// ==============================
-// ENDING
-// ==============================
+currentPage++;
 
-function showConstellation(){
+if(currentPage>=pages.length){
 
-const ending=document.getElementById("constellationEnding");
-
-if(!ending) return;
-
-ending.style.display="flex";
-
-ending.classList.add("constellation");
+currentPage=0;
 
 }
 
-// ==============================
-// HEART BURST
-// ==============================
+showPage();
 
-function burstHeart(x,y){
+};
 
-for(let i=0;i<30;i++){
+document.getElementById("prevPage").onclick=()=>{
 
-const heart=document.createElement("div");
+currentPage--;
 
-heart.className="heart";
+if(currentPage<0){
 
-heart.innerHTML="❤";
-
-heart.style.position="fixed";
-
-heart.style.left=x+"px";
-
-heart.style.top=y+"px";
-
-heart.style.fontSize=(14+Math.random()*18)+"px";
-
-heart.style.pointerEvents="none";
-
-heart.style.transition="2s";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.style.left=(x+(Math.random()*300-150))+"px";
-
-heart.style.top=(y+(Math.random()*300-150))+"px";
-
-heart.style.opacity="0";
-
-heart.style.transform=`scale(${1+Math.random()*2})`;
-
-},50);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},2200);
+currentPage=pages.length-1;
 
 }
 
-}
+showPage();
 
-// ==============================
-// CLICK STAR
-// ==============================
+};
 
-document.querySelectorAll(".memoryStar").forEach((star)=>{
-
-star.addEventListener("click",(e)=>{
-
-unlockMemory();
-
-burstHeart(e.clientX,e.clientY);
-
-});
-
-});
-
-// ==============================
-// FLOAT MOON
-// ==============================
-
-const moon=document.querySelector(".moon");
-
-if(moon){
-
-moon.animate([
-
-{
-
-transform:"translateY(0px)"
-
-},
-
-{
-
-transform:"translateY(-12px)"
-
-},
-
-{
-
-transform:"translateY(0px)"
-
-}
-
-],{
-
-duration:6000,
-
-iterations:Infinity
-
-});
-
-}
-
-// ==============================
-// END
-// ==============================
+showPage();
