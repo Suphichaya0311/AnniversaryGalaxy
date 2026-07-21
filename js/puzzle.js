@@ -1,30 +1,27 @@
+// =========================
+// MEMORY PUZZLE
+// =========================
 
-// ==============================
-// PUZZLE GAME
-// ==============================
+const puzzleArea = document.getElementById("puzzleArea");
 
-const puzzleArea=document.getElementById("puzzleArea");
-const heartEnding=document.getElementById("heartEnding");
-const finishText=document.getElementById("finishText");
+const puzzleImage = "images/gallery/memory20.jpg";
 
-const puzzleImage="images/gallery/memory20.jpg";
+let pieces = [];
+let selectedPiece = null;
 
-let pieces=[];
-let correct=0;
-
-// ==============================
-// CREATE PUZZLE
-// ==============================
+// =========================
+// CREATE
+// =========================
 
 function createPuzzle(){
 
-pieces=[];
-
-correct=0;
+if(!puzzleArea) return;
 
 puzzleArea.innerHTML="";
 
-for(let i=0;i<20;i++){
+pieces=[];
+
+for(let i=0;i<16;i++){
 
 pieces.push(i);
 
@@ -36,24 +33,20 @@ pieces.forEach((number,index)=>{
 
 const piece=document.createElement("div");
 
-piece.className="piece";
-
-piece.draggable=true;
+piece.className="puzzlePiece";
 
 piece.dataset.correct=number;
 
-piece.dataset.current=index;
+piece.dataset.index=index;
 
 piece.style.backgroundImage=`url(${puzzleImage})`;
 
-const x=(number%4)*120;
-const y=Math.floor(number/4)*120;
+const x=(number%4)*25;
+const y=Math.floor(number/4)*25;
 
-piece.style.backgroundPosition=`-${x}px -${y}px`;
+piece.style.backgroundPosition=`${x}% ${y}%`;
 
-piece.addEventListener("dragstart",dragStart);
-piece.addEventListener("dragover",dragOver);
-piece.addEventListener("drop",dropPiece);
+piece.onclick=()=>selectPiece(piece);
 
 puzzleArea.appendChild(piece);
 
@@ -63,71 +56,70 @@ puzzleArea.appendChild(piece);
 
 createPuzzle();
 
-// ==============================
-// DRAG
-// ==============================
+// =========================
+// SELECT
+// =========================
 
-let selected=null;
+function selectPiece(piece){
 
-function dragStart(){
+if(selectedPiece==null){
 
-selected=this;
+selectedPiece=piece;
 
-}
+piece.style.outline="3px solid #ffd86b";
 
-function dragOver(e){
-
-e.preventDefault();
+return;
 
 }
 
-function dropPiece(){
+swapPiece(selectedPiece,piece);
 
-if(selected==this)return;
+selectedPiece.style.outline="none";
 
-const temp=this.style.backgroundPosition;
-
-const tempCorrect=this.dataset.correct;
-
-this.style.backgroundPosition=selected.style.backgroundPosition;
-
-this.dataset.correct=selected.dataset.correct;
-
-selected.style.backgroundPosition=temp;
-
-selected.dataset.correct=tempCorrect;
+selectedPiece=null;
 
 checkPuzzle();
 
 }
 
-// ==============================
+// =========================
+// SWAP
+// =========================
+
+function swapPiece(a,b){
+
+const bg=a.style.backgroundPosition;
+const correct=a.dataset.correct;
+
+a.style.backgroundPosition=b.style.backgroundPosition;
+a.dataset.correct=b.dataset.correct;
+
+b.style.backgroundPosition=bg;
+b.dataset.correct=correct;
+
+}
+
+// =========================
 // CHECK
-// ==============================
+// =========================
 
 function checkPuzzle(){
 
-correct=0;
+const all=document.querySelectorAll(".puzzlePiece");
 
-const all=document.querySelectorAll(".piece");
+let complete=true;
 
 all.forEach((piece,index)=>{
 
-if(Number(piece.dataset.correct)===index){
+if(Number(piece.dataset.correct)!==index){
 
-correct++;
-
-piece.classList.add("successGlow");
-
-}else{
-
-piece.classList.remove("successGlow");
+complete=false;
 
 }
 
 });
 
-if(correct===20){
+if(complete){
 
 finishPuzzle();
 
@@ -135,68 +127,91 @@ finishPuzzle();
 
 }
 
-// ==============================
+// =========================
 // FINISH
-// ==============================
+// =========================
 
 function finishPuzzle(){
 
-heartEnding.style.display="block";
+document.getElementById("heartEnding").style.display="block";
 
-finishText.style.display="block";
+document.getElementById("finishText").style.display="block";
 
-burstHeart(
+document.querySelectorAll(".puzzlePiece").forEach(piece=>{
 
-window.innerWidth/2,
-
-window.innerHeight/2
-
-);
-
-setTimeout(()=>{
-
-openPopup("imagePopup");
-
-document.getElementById("popupImage").src=puzzleImage;
-
-document.getElementById("popupText").innerHTML=
-
-"❤️ We completed another memory together ❤️";
-
-},1200);
-
-}
-
-// ==============================
-// RANDOM SHINE
-// ==============================
-
-setInterval(()=>{
-
-const all=document.querySelectorAll(".piece");
-
-const random=Math.floor(Math.random()*all.length);
-
-if(all[random]){
-
-all[random].animate([
-
-{opacity:.7},
-
-{opacity:1},
-
-{opacity:.7}
-
-],{
-
-duration:700
+piece.classList.add("correct");
 
 });
 
+createHeartRain();
+
 }
 
-},900);
+// =========================
+// HEART EFFECT
+// =========================
 
-// ==============================
+function createHeartRain(){
+
+for(let i=0;i<60;i++){
+
+setTimeout(()=>{
+
+const heart=document.createElement("div");
+
+heart.innerHTML="💜";
+
+heart.style.position="fixed";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.top="-40px";
+
+heart.style.fontSize=(20+Math.random()*20)+"px";
+
+heart.style.pointerEvents="none";
+
+heart.style.transition="4s linear";
+
+heart.style.zIndex="99999";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.style.transform=`translateY(${window.innerHeight+100}px)
+rotate(${Math.random()*720}deg)`;
+
+heart.style.opacity="0";
+
+},30);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},4500);
+
+},i*80);
+
+}
+
+}
+
+// =========================
+// RESET
+// =========================
+
+function resetPuzzle(){
+
+document.getElementById("heartEnding").style.display="none";
+
+document.getElementById("finishText").style.display="none";
+
+createPuzzle();
+
+}
+
+// =========================
 // END
-// ==============================
+// =========================
