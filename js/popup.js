@@ -1,9 +1,12 @@
-
-// ==============================
+// =========================
 // POPUP SYSTEM
-// ==============================
+// =========================
 
-const popups=document.querySelectorAll(".popup");
+const popups = document.querySelectorAll(".popup");
+
+// =========================
+// OPEN
+// =========================
 
 function openPopup(id){
 
@@ -11,95 +14,49 @@ const popup=document.getElementById(id);
 
 if(!popup) return;
 
-popup.classList.add("active");
+popup.style.display="flex";
+
+popup.classList.add("fadeIn");
 
 }
 
-function closePopup(id){
-
-const popup=document.getElementById(id);
-
-if(!popup) return;
-
-popup.classList.remove("active");
-
-}
-
-// ==============================
-// MENU
-// ==============================
-
-document.getElementById("timerMenu").onclick=()=>{
-
-openPopup("timerPopup");
-
-};
-
-document.getElementById("letterMenu").onclick=()=>{
-
-openPopup("letterPopup");
-
-document.querySelector(".letterBox").classList.add("open");
-
-};
-
-document.getElementById("puzzleMenu").onclick=()=>{
-
-openPopup("puzzlePopup");
-
-};
-
-document.getElementById("memoryMenu").onclick=()=>{
-
-openPopup("memoryPopup");
-
-};
-
-document.getElementById("wishMenu").onclick=()=>{
-
-openPopup("wishPopup");
-
-};
-
-document.getElementById("storyMenu").onclick=()=>{
-
-openPopup("storyPopup");
-
-};
-
-document.getElementById("musicMenu").onclick=()=>{
-
-openPopup("musicPopup");
-
-};
-
-// ==============================
+// =========================
 // CLOSE
-// ==============================
+// =========================
+
+function closePopup(popup){
+
+popup.style.display="none";
+
+popup.classList.remove("fadeIn");
+
+}
+
+// =========================
+// CLOSE BUTTON
+// =========================
 
 document.querySelectorAll(".close").forEach(btn=>{
 
-btn.onclick=()=>{
+btn.addEventListener("click",()=>{
 
-const id=btn.dataset.close;
-
-closePopup(id);
-
-};
+closePopup(btn.closest(".popup"));
 
 });
 
-// ==============================
+});
+
+// =========================
 // CLICK OUTSIDE
-// ==============================
+// =========================
+
+window.addEventListener("click",(e)=>{
 
 popups.forEach(popup=>{
 
-popup.addEventListener("click",(e)=>{
-
 if(e.target===popup){
 
-popup.classList.remove("active");
+closePopup(popup);
 
 }
 
@@ -107,17 +64,17 @@ popup.classList.remove("active");
 
 });
 
-// ==============================
+// =========================
 // ESC
-// ==============================
+// =========================
 
 document.addEventListener("keydown",(e)=>{
 
 if(e.key==="Escape"){
 
-popups.forEach(p=>{
+popups.forEach(popup=>{
 
-p.classList.remove("active");
+closePopup(popup);
 
 });
 
@@ -125,146 +82,102 @@ p.classList.remove("active");
 
 });
 
-// ==============================
+// =========================
+// MENU BUTTON
+// =========================
+
+document.getElementById("timerBtn").onclick=()=>openPopup("timerPopup");
+
+document.getElementById("letterBtn").onclick=()=>openPopup("letterPopup");
+
+document.getElementById("memoryBtn").onclick=()=>openPopup("memoryPopup");
+
+document.getElementById("storyBtn").onclick=()=>openPopup("storyPopup");
+
+document.getElementById("puzzleBtn").onclick=()=>openPopup("puzzlePopup");
+
+document.getElementById("wishBtn").onclick=()=>openPopup("wishPopup");
+
+// =========================
 // STORY BOOK
-// ==============================
+// =========================
 
 const pages=document.querySelectorAll(".page");
 
-let currentPage=0;
+let page=0;
 
-function showPage(index){
+function showPage(){
 
-pages.forEach(page=>{
+pages.forEach(p=>p.classList.remove("active"));
 
-page.classList.remove("active");
-
-});
-
-pages[index].classList.add("active");
+pages[page].classList.add("active");
 
 }
 
-const next=document.getElementById("nextPage");
+if(document.getElementById("nextPage")){
 
-const prev=document.getElementById("prevPage");
+document.getElementById("nextPage").onclick=()=>{
 
-if(next){
+page++;
 
-next.onclick=()=>{
+if(page>=pages.length){
 
-if(currentPage<pages.length-1){
-
-currentPage++;
-
-showPage(currentPage);
+page=0;
 
 }
+
+showPage();
 
 };
 
 }
 
-if(prev){
+if(document.getElementById("prevPage")){
 
-prev.onclick=()=>{
+document.getElementById("prevPage").onclick=()=>{
 
-if(currentPage>0){
+page--;
 
-currentPage--;
+if(page<0){
 
-showPage(currentPage);
+page=pages.length-1;
 
 }
+
+showPage();
 
 };
 
 }
 
-// ==============================
-// LETTER
-// ==============================
+showPage();
 
-const letterText=document.getElementById("letterText");
+// =========================
+// WISH STAR
+// =========================
 
-const message=`Happy Anniversary ❤️
+const wish=document.getElementById("wishButton");
 
-Thank you for being my universe.
+if(wish){
 
-Every memory with you became a little star in my sky.
+wish.onclick=()=>{
 
-I hope we will create many more memories together.
+wish.innerHTML="⭐ Your wish has reached the stars ⭐";
 
-I love you forever.`;
+wish.disabled=true;
 
-let typing=false;
+setTimeout(()=>{
 
-function typeLetter(){
+wish.innerHTML="✨ Make A Wish ✨";
 
-if(typing) return;
+wish.disabled=false;
 
-typing=true;
-
-letterText.innerHTML="";
-
-let i=0;
-
-const timer=setInterval(()=>{
-
-letterText.innerHTML+=message.charAt(i);
-
-i++;
-
-if(i>=message.length){
-
-clearInterval(timer);
-
-}
-
-},35);
-
-}
-
-const letterMenu=document.getElementById("letterMenu");
-
-if(letterMenu){
-
-letterMenu.addEventListener("click",()=>{
-
-setTimeout(typeLetter,500);
-
-});
-
-}
-
-// ==============================
-// IMAGE PREVIEW
-// ==============================
-
-const popupImage=document.getElementById("popupImage");
-
-document.querySelectorAll(".memoryStar").forEach(star=>{
-
-star.onclick=(e)=>{
-
-openPopup("imagePopup");
-
-popupImage.src=star.dataset.img;
-
-document.getElementById("popupText").innerHTML="One of our beautiful memories ❤️";
-
-if(typeof unlockMemory==="function"){
-
-unlockMemory();
-
-}
-
-burstHeart(e.clientX,e.clientY);
+},3000);
 
 };
 
-});
+}
 
-// ==============================
+// =========================
 // END
-// ==============================
+// =========================
