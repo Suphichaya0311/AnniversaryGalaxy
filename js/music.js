@@ -1,220 +1,92 @@
+// =========================
+// MUSIC
+// =========================
 
-// ===============================
-// MUSIC SYSTEM
-// ===============================
+const bgMusic = document.getElementById("bgMusic");
+const musicButton = document.getElementById("musicButton");
 
-const music=document.getElementById("bgMusic");
+let musicPlaying = true;
 
-const musicToggle=document.getElementById("musicToggle");
-
-const musicFloating=document.getElementById("musicFloating");
-
-let isPlaying=false;
-
-// ===============================
-// START MUSIC
-// ===============================
-
-function startMusic(){
-
-music.volume=0.45;
-
-music.loop=true;
-
-music.play().then(()=>{
-
-isPlaying=true;
-
-updateMusicIcon();
-
-}).catch(()=>{});
-
-}
-
-// ===============================
-// PAUSE
-// ===============================
-
-function pauseMusic(){
-
-music.pause();
-
-isPlaying=false;
-
-updateMusicIcon();
-
-}
-
-// ===============================
-// PLAY
-// ===============================
-
-function playMusicAgain(){
-
-music.play();
-
-isPlaying=true;
-
-updateMusicIcon();
-
-}
-
-// ===============================
-// ICON
-// ===============================
-
-function updateMusicIcon(){
-
-if(isPlaying){
-
-musicFloating.innerHTML="🔊";
-
-if(musicToggle){
-
-musicToggle.innerHTML="Pause Music";
-
-}
-
-}
-
-else{
-
-musicFloating.innerHTML="🔇";
-
-if(musicToggle){
-
-musicToggle.innerHTML="Play Music";
-
-}
-
-}
-
-}
-
-// ===============================
-// FLOAT BUTTON
-// ===============================
-
-musicFloating.addEventListener("click",()=>{
-
-if(isPlaying){
-
-pauseMusic();
-
-}
-
-else{
-
-playMusicAgain();
-
-}
-
-});
-
-// ===============================
-// POPUP BUTTON
-// ===============================
-
-if(musicToggle){
-
-musicToggle.addEventListener("click",()=>{
-
-if(isPlaying){
-
-pauseMusic();
-
-}
-
-else{
-
-playMusicAgain();
-
-}
-
-});
-
-}
-
-// ===============================
+// =========================
 // AUTO PLAY
-// ===============================
+// =========================
 
-window.addEventListener("click",()=>{
+window.addEventListener("load",()=>{
 
-if(!isPlaying){
+bgMusic.volume = 0.45;
 
-startMusic();
+bgMusic.play().catch(()=>{
 
-}
+musicPlaying = false;
 
-},{once:true});
+});
 
-// ===============================
-// FADE IN
-// ===============================
+});
 
-function fadeInMusic(){
+// =========================
+// BUTTON
+// =========================
 
-music.volume=0;
+musicButton.addEventListener("click",()=>{
 
-music.play();
+if(bgMusic.paused){
 
-isPlaying=true;
+bgMusic.play();
 
-updateMusicIcon();
+musicPlaying = true;
 
-let volume=0;
+musicButton.style.transform="scale(1.1) rotate(0deg)";
+musicButton.style.opacity="1";
 
-const fade=setInterval(()=>{
+}else{
 
-volume+=0.02;
+bgMusic.pause();
 
-music.volume=volume;
+musicPlaying = false;
 
-if(volume>=0.45){
-
-music.volume=0.45;
-
-clearInterval(fade);
+musicButton.style.transform="scale(.9)";
+musicButton.style.opacity=".6";
 
 }
 
-},120);
+});
+
+// =========================
+// ROTATE ICON
+// =========================
+
+setInterval(()=>{
+
+if(musicPlaying){
+
+musicButton.style.transform += " rotate(10deg)";
 
 }
 
-// ===============================
-// FADE OUT
-// ===============================
+},200);
 
-function fadeOutMusic(){
+// =========================
+// SAVE STATUS
+// =========================
 
-let volume=music.volume;
+window.addEventListener("beforeunload",()=>{
 
-const fade=setInterval(()=>{
+localStorage.setItem("musicTime",bgMusic.currentTime);
 
-volume-=0.02;
+});
 
-music.volume=volume;
+window.addEventListener("load",()=>{
 
-if(volume<=0){
+const time = localStorage.getItem("musicTime");
 
-music.pause();
+if(time){
 
-music.volume=0.45;
-
-isPlaying=false;
-
-updateMusicIcon();
-
-clearInterval(fade);
+bgMusic.currentTime = Number(time);
 
 }
 
-},120);
+});
 
-}
-
-// ===============================
+// =========================
 // END
-// ===============================
+// =========================
