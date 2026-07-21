@@ -1,9 +1,9 @@
-
-// ==============================
+// =========================
 // MEMORY GALAXY
-// ==============================
+// =========================
 
 const memoryImages=[
+
 "images/gallery/memory01.jpg",
 "images/gallery/memory02.jpg",
 "images/gallery/memory03.jpg",
@@ -24,181 +24,143 @@ const memoryImages=[
 "images/gallery/memory18.jpg",
 "images/gallery/memory19.jpg",
 "images/gallery/memory20.jpg"
-];
-
-// ==============================
-
-const memoryText=[
-
-"Our first memory ❤️",
-"You always make me smile.",
-"Every journey with you matters.",
-"A beautiful day together.",
-"I'll always remember this.",
-"You are my happiness.",
-"Another little memory.",
-"Thank you for staying.",
-"I love this moment.",
-"Our little adventure.",
-"My favorite smile.",
-"The day I'll never forget.",
-"Always beside you.",
-"You are my safe place.",
-"Forever starts here.",
-"Our beautiful universe.",
-"My precious person.",
-"Every picture tells our story.",
-"Almost there...",
-"The last memory ❤️"
 
 ];
 
-// ==============================
+const memoryCaption=document.getElementById("memoryCaption");
+const memoryImage=document.getElementById("memoryImage");
 
-const stars=document.querySelectorAll(".memoryStar");
+let currentMemory=0;
 
-const preview=document.getElementById("memoryImage");
+// =========================
+// OPEN MEMORY
+// =========================
 
-const caption=document.getElementById("memoryCaption");
+function showMemory(index){
 
-let opened=[];
+currentMemory=index;
 
-// ==============================
+memoryImage.src=memoryImages[index];
 
-stars.forEach((star,index)=>{
+memoryCaption.innerHTML=
+"Memory "+(index+1)+" ❤️";
 
-star.dataset.index=index;
+memoryImage.classList.remove("fadeIn");
 
-star.addEventListener("click",(e)=>{
+void memoryImage.offsetWidth;
 
-preview.style.display="block";
+memoryImage.classList.add("fadeIn");
 
-preview.src=memoryImages[index];
+}
 
-caption.innerHTML=memoryText[index];
+// =========================
 
-star.classList.add("opened");
+showMemory(0);
 
-burstHeart(e.clientX,e.clientY);
+// =========================
+// CLICK IMAGE
+// =========================
 
-if(!opened.includes(index)){
+memoryImage.onclick=()=>{
 
-opened.push(index);
+currentMemory++;
 
-unlockMemory();
+if(currentMemory>=memoryImages.length){
+
+currentMemory=0;
+
+}
+
+showMemory(currentMemory);
+
+};
+
+// =========================
+// KEYBOARD
+// =========================
+
+document.addEventListener("keydown",(e)=>{
+
+if(document.getElementById("memoryPopup").style.display!="flex") return;
+
+if(e.key=="ArrowRight"){
+
+currentMemory++;
+
+if(currentMemory>=memoryImages.length){
+
+currentMemory=0;
+
+}
+
+showMemory(currentMemory);
+
+}
+
+if(e.key=="ArrowLeft"){
+
+currentMemory--;
+
+if(currentMemory<0){
+
+currentMemory=memoryImages.length-1;
+
+}
+
+showMemory(currentMemory);
 
 }
 
 });
 
-});
+// =========================
+// AUTO SLIDE
+// =========================
 
-// ==============================
-// COMPLETE
-// ==============================
+setInterval(()=>{
 
-function checkMemory(){
+if(document.getElementById("memoryPopup").style.display=="flex"){
 
-if(opened.length==20){
+currentMemory++;
+
+if(currentMemory>=memoryImages.length){
+
+currentMemory=0;
+
+}
+
+showMemory(currentMemory);
+
+}
+
+},5000);
+
+// =========================
+// COMPLETE MEMORY
+// =========================
+
+let viewed=new Set();
+
+memoryImage.addEventListener("load",()=>{
+
+viewed.add(currentMemory);
+
+if(viewed.size==20){
+
+if(window.playEnding){
 
 setTimeout(()=>{
 
-showConstellation();
-
-},1500);
-
-}
-
-}
-
-setInterval(checkMemory,1000);
-
-// ==============================
-// IMAGE EFFECT
-// ==============================
-
-preview.animate([
-
-{
-
-transform:"scale(.95)",
-
-opacity:.7
-
-},
-
-{
-
-transform:"scale(1)",
-
-opacity:1
-
-}
-
-],{
-
-duration:900,
-
-iterations:Infinity
-
-});
-
-// ==============================
-// STAR GLOW
-// ==============================
-
-setInterval(()=>{
-
-stars.forEach(star=>{
-
-if(star.classList.contains("opened")){
-
-star.style.color="#ffd86e";
-
-star.style.filter="drop-shadow(0 0 15px gold)";
-
-}
-
-});
-
-},500);
-
-// ==============================
-// RANDOM TWINKLE
-// ==============================
-
-setInterval(()=>{
-
-const random=Math.floor(Math.random()*stars.length);
-
-stars[random].animate([
-
-{
-
-transform:"scale(1)"
-
-},
-
-{
-
-transform:"scale(1.4)"
-
-},
-
-{
-
-transform:"scale(1)"
-
-}
-
-],{
-
-duration:1000
-
-});
+playEnding();
 
 },1200);
 
-// ==============================
+}
+
+}
+
+});
+
+// =========================
 // END
-// ==============================
+// =========================
